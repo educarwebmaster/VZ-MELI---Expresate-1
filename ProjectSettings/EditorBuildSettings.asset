@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resource/MELI/AI_MELI_MOD1_PALABRAS_REPETIDAS/Scenes/AI_MELI_MOD1_PALABRAS_REPETIDAS.unity
-    guid: dc83795aad7bbc64198df57fcc123e8b
+    path: Assets/Resource/EXPRESATE/RESPUESTA MULTIPLE/Scenes/DRAG AND DROP.unity
+    guid: e53928aa15a53c145844a52f7a8333bf
   m_configObjects: {}
