@@ -1,46 +1,48 @@
-# VZ-MELI --Expresate
+# VECTOR Z --EXPRESATE
+
 Aplicativo educativo que implementa realidad aumentada con el fin de detectar marcadores y reproducir contenido multimedia.
-Getting Started
+
+## Getting Started
 
 En este documento se encontraran las especificaciones tecnicas para la elavoracion del proyecto,desde documentacion hasta metodologias de producción.
-Requisitos de instalacion
 
+### Requisitos de instalacion
+```
 1. Android 5.1
 2. API NAME: 22.
 3. Resolucion: 2K o 1920x1080
+```
 
-Instalacion del proyecto
-Windows
-
+## Instalacion del proyecto
+### Windows
+```
 1. Descargar e instalar Git
 2. Abrir CMD con permisos de administrador.
 3. git clone https://github.com/lcarcamo1526/VZ-II
-
-GNU/Linux
-(Ubuntu y derivados)
-
+```
+### GNU/Linux 
+#### *(Ubuntu y derivados)*
+```
 1. sudo apt-get update
 2. sudo apt-get upgrade
 3. sudo apt-get install git
 4. git clone https://github.com/lcarcamo1526/VZ-II
-
-(Arch Linux derivados)
-
+```
+#### *(Arch Linux derivados)*
+```
 1. sudo pacman -S git
 2. git clone https://github.com/lcarcamo1526/VZ-II
-
-(Fedora y Red Hat)
-
+```
+#### *(Fedora y Red Hat)*
+```
 1. sudo yum upgrade
 2. sudo yum install git
 3. git clone https://github.com/lcarcamo1526/VZ-II
+```
+## Elaborado con
 
-Elaborado con
+* [Unity 2017 LTS](https://unity3d.com/es/unity/qa/lts-releases) - Motor de desarrollo
+* [EasyAR](https://www.easyar.com/) - Libreria de Realidad Aumentada.
+* [LeanTouch](https://assetstore.unity.com/packages/tools/input-management/lean-touch-30111) -  Framework Touch Gestures.
 
-    Unity 2018.1.9 LTS - Motor de desarrollo
-    EasyAR - Libreria de Realidad Aumentada.
-    LeanTouch - Framework Touch Gestures.
-
-Autores
-
-    Luis Carcamo - Programador WEB - Educar
+## Autores
