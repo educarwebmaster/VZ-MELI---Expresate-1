@@ -46,3 +46,4 @@ En este documento se encontraran las especificaciones tecnicas para la elavoraci
 * [LeanTouch](https://assetstore.unity.com/packages/tools/input-management/lean-touch-30111) -  Framework Touch Gestures.
 
 ## Autores
+* **Luis Carcamo** - *Programador WEB* - [Educar](https://git-scm.com/)
