@@ -3,6 +3,7 @@ using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_LABERINTO_OCULAR {
     public class CoinRecolector : MonoBehaviour {
@@ -24,10 +25,24 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         [SerializeField] private FXAudio _fxAudio;
 
+        [Tooltip("¿el juego tiene musica propia?")] [SerializeField]
+        private bool _hasMusic;
 
-        private IEnumerator LoadDesmepeno(int seconds) {
+        [FormerlySerializedAs("_audioSource")] [EnableIf("_hasMusic", true)] [SerializeField]
+        private AudioSource _musicSource;
+
+
+        /// <summary>
+        /// Couroutine
+        /// </summary>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        private IEnumerator LoadDesempeno(int seconds) {
             yield return new WaitForSeconds(seconds);
             _desempeno.SetActive(true);
+            if (_musicSource != null && _hasMusic) {
+                _musicSource.Stop();
+            }
         }
 
         /// <summary>
@@ -56,6 +71,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
                         _scoreManager.ReduceScore();
                         other.transform.parent.gameObject.SetActive(false);
                         Tries--;
+                        Handheld.Vibrate();
                     }
                 }
             }
@@ -63,7 +79,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         private void Update() {
             if (Tries <= 0) {
-                StartCoroutine(LoadDesmepeno(_EnableDelay));
+                StartCoroutine(LoadDesempeno(_EnableDelay));
                 _scoreManager.AsignScore();
             }
         }
