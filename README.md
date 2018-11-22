@@ -1,5 +1,4 @@
-#VZ-MELI---Expresate
-
+# VZ-MELI---Expresate
 Aplicativo educativo que implementa realidad aumentada con el fin de detectar marcadores y reproducir contenido multimedia.
 Getting Started
 
