@@ -6,7 +6,7 @@
 //Note: The progress may look like it goes straight to 100% if your Scene doesn’t have a lot to load.
 
 using System.Collections;
-using Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,7 +44,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.GENERAL {
                     //Change the Text to show the Scene is ready
 
                     //Wait to you press the space key to activate the Scene
-                    if (Input.GetKeyDown(KeyCode.Space) || _navegationManager.loadedScene)
+                    if (Input.GetKeyDown(KeyCode.Space) || _navegationManager.LoadedScene)
                         //Activate the Scene
                         asyncOperation.allowSceneActivation = true;
                 }

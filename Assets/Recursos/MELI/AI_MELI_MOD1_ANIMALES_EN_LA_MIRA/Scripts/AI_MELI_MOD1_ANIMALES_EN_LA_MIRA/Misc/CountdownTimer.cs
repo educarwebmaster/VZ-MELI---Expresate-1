@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Navegation;
-using Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;

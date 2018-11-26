@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation {
-    public class NavegationManager : MonoBehaviour {
-        public bool HasDelay,loadedScene;
+namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation
+{
+    public class NavegationManager : MonoBehaviour
+    {
+        public bool HasDelay;
+        [FormerlySerializedAs("loadedScene")] public bool LoadedScene;
 
-        
 
         [Tooltip("Segundos a esperar al cambiar de layout activo en escena")] [EnableIf("HasDelay", true)]
         public float DelaySeconds;
@@ -50,8 +53,7 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
 
             return 0;
         }
-        
-        
+
 
         /// <summary>
         /// Devuelve  el elemento como tal del layout actual
@@ -62,7 +64,7 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         }
 
         public void LoadScene() {
-            loadedScene = !loadedScene;
+            LoadedScene = !LoadedScene;
         }
 
         /// <summary>
@@ -70,6 +72,14 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         /// </summary>
         public void Forward() {
             StartCoroutine(_Forward());
+        }
+
+        /// <summary>
+        /// Activa el siguiente layout pero con Delay
+        /// </summary>
+        /// <param name="seconds"></param>
+        public void Forward(float seconds) {
+            StartCoroutine(_Forward(seconds));
         }
 
         /// <summary>
@@ -87,9 +97,11 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         /// <returns></returns>
         private IEnumerator CustomDelay(float seconds) {
             yield return new WaitForSeconds(seconds);
-            Debug.Log("...");
         }
 
+        /// <summary>
+        /// Dirige al Anterior  Layout sin tiempo especifico
+        /// </summary>
         private IEnumerator _Backward() {
             yield return new WaitForSeconds(DelaySeconds);
             var anteriorElemento = LayoutActual() - 1;
@@ -100,13 +112,42 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
             }
         }
 
+        /// <summary>
+        /// Dirige al Anterior Layout con tiempo especifico
+        /// </summary>
+        private IEnumerator _Backward(float seconds) {
+            yield return new WaitForSeconds(seconds);
+            var anteriorElemento = LayoutActual() - 1;
+            Debug.Log(anteriorElemento + " index");
+
+            if (anteriorElemento < _gameElements.Length && anteriorElemento >= 0) {
+                GoToElement(anteriorElemento);
+            }
+        }
+
+        /// <summary>
+        /// Dirige al siguiente Layout sin  tiempo especifico
+        /// </summary>
         private IEnumerator _Forward() {
             yield return new WaitForSeconds(DelaySeconds);
             var siguienteElemento = LayoutActual() + 1;
-            Debug.Log(siguienteElemento + " index");
-
+            //Debug.Log(siguienteElemento + " index");
             if (siguienteElemento > 0 && siguienteElemento < _gameElements.Length) {
                 StartCoroutine(CustomDelay(DelaySeconds));
+                GoToElement(siguienteElemento);
+            }
+        }
+
+        /// <summary>
+        /// Dirige al siguiente Layout con tiempo especifico
+        /// </summary>
+        /// <param name="seconds"> Tiempo especifico</param>
+        /// <returns></returns>
+        private IEnumerator _Forward(float seconds) {
+            yield return new WaitForSeconds(seconds);
+            var siguienteElemento = LayoutActual() + 1;
+
+            if (siguienteElemento > 0 && siguienteElemento < _gameElements.Length) {
                 GoToElement(siguienteElemento);
             }
         }

@@ -1,11 +1,12 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
-    public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
+{
+    public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    {
         #region DRAG MANAGER
 
         [Header("Identificador")] public int Id;
@@ -20,33 +21,42 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
         [Tooltip("Imagen a remplazar despues de calificar")]
         [Header("Imagen de Calificación")]
         [SerializeField]
-        private Sprite _imgCalificacion;
+        private Sprite _estadoAnterior, _imgCalificacion;
 
-        /// <summary>
-        /// Cambia la imagen asignada luego de calificar
-        /// </summary>
-        public void ImgCalification() {
-            if (_imgCalificacion) {
-                GetComponent<Image>().sprite = _imgCalificacion;
-            }
-        }
+        public GameObject ElementParent;
+
 
         private void Start() {
             //Asigna la id como nombre del elemento
             gameObject.name = _remplazarNombre ? Id + "" : gameObject.name;
+            _estadoAnterior = GetComponent<Image>().sprite;
+        }
+
+        /// <summary>
+        /// Cambia la imagen asignada luego de calificar
+        /// </summary>
+        public void SetImgCalification() {
+            GetComponent<Image>().sprite = _imgCalificacion;
+        }
+
+        public void SetImgEstadoAnterior() {
+            if (_estadoAnterior) {
+                GetComponent<Image>().sprite = _estadoAnterior;
+            }
         }
 
         #endregion
 
         #region DRAG & DROP BEHAVIOUR
 
-        public static bool CanMove = true;
+        public  bool CanMove = true;
         public static GameObject ItemBeginDragged;
         private Vector3 _startPosition;
         private Transform _startParent;
         private CanvasGroup _canvasGroup;
 
         private void Awake() {
+            ElementParent = transform.parent.gameObject;
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
@@ -25,7 +26,7 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
 
         public void OnDrop(PointerEventData eventData) {
             //Si no hay un item en el slot el elemento seleccionado se vuelve hijo del slot sobre el cual se encuentra sobrepuesto.
-            if (!Item && DragHandler.CanMove) {
+            if (!Item && DragHandler.ItemBeginDragged.GetComponent<DragHandler>().CanMove) {
                 DragHandler.ItemBeginDragged.transform.SetParent(transform);
                 Debug.Log(DragHandler.ItemBeginDragged.gameObject.name);
             }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Navegation;
-using Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -12,12 +12,13 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
     /// Determina los puntajes del juego
     /// </summary>
     public class ScoreManager : MonoBehaviour {
-        [Tooltip("Asigna el resultado de los intentos de forma positiva y negativa")] [SerializeField]
-        private bool AssignResultText;
+        
 
         [SerializeField] private double _numQuestion, _rightAnswer, _failedAnswers;
         [SerializeField] private Text _textResult, _numResult;
 
+        //TestTries = Intentos no evaluativos, aquellos que no aumentan el puntaje pero sin embargo si tienen cambio de estados
+        //ActivitiesTries = Intentos validos en una actividad por intentos
         public int TestTries, ActivitiesTries;
         private int _testTries, _activitiesTries;
 
@@ -30,7 +31,10 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         [SerializeField] [EnableIf("ResetQuestWork", true)]
         private GameObject[] _QuestWork;
-
+        
+        
+        [Tooltip("Asigna el resultado de los intentos de forma positiva y negativa")] [SerializeField]
+        private bool AssignResultText;
 
         [EnableIf("AssignResultText", true)] [SerializeField]
         private Text _rightText, _wrongText;
