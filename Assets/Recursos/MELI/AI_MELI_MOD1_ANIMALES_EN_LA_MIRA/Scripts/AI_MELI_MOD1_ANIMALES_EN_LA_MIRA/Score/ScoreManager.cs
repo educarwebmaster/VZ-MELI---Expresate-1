@@ -1,9 +1,10 @@
 ﻿using System;
 using Navegation;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
-using Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score {
@@ -19,7 +20,8 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         //TestTries = Intentos no evaluativos, aquellos que no aumentan el puntaje pero sin embargo si tienen cambio de estados
         //ActivitiesTries = Intentos validos en una actividad por intentos
-        public int TestTries, ActivitiesTries;
+        public int TestTries;
+        [FormerlySerializedAs("ActivitiesTries")] public int MultipleActivitiesTries;
         private int _testTries, _activitiesTries;
 
 
@@ -41,7 +43,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         private void Start() {
             _testTries = TestTries;
-            _activitiesTries = ActivitiesTries;
+            _activitiesTries = MultipleActivitiesTries;
         }
 
         /// <summary>
@@ -70,8 +72,8 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
             if (_navegationManager.GetLayoutActual().GetComponent<LayoutManager>().Escena ==
                 LayoutManager.TipoEscena.Actividad) {
                 //Debug.Log(_navegationManager.GetLayoutActual().name);
-                if (ActivitiesTries > 0) {
-                    ActivitiesTries -= 1;
+                if (MultipleActivitiesTries > 0) {
+                    MultipleActivitiesTries -= 1;
                 }
             }
 
@@ -89,7 +91,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
 
         public bool CheckDelay() {
-            return TestTries < 0 || ActivitiesTries < 0;
+            return TestTries < 0 || MultipleActivitiesTries < 0;
         }
 
 
@@ -98,7 +100,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
         /// </summary>
         private void RestoreTries() {
             TestTries = _testTries;
-            ActivitiesTries = _activitiesTries;
+            MultipleActivitiesTries = _activitiesTries;
         }
 
         /// <summary>
@@ -123,12 +125,12 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
             RestoreTries();
             if (ResetQuestWork) {
                 foreach (var t in _QuestWork) {
-                    var questWork = t.GetComponentsInChildren<QuestWork>();
+                    var questWork = t.GetComponentsInChildren<MultipleChooise>();
                     var images = t.GetComponentsInChildren<Image>();
                     var buttons = t.GetComponentsInChildren<Button>();
                     foreach (var quest in questWork)
                         quest.AnswerValue =
-                            quest.IsValuable ? QuestWork.AnswerStatus.None : QuestWork.AnswerStatus.Locked;
+                            quest.IsValuable ? MultipleChooise.AnswerStatus.None : MultipleChooise.AnswerStatus.Locked;
                     foreach (var button in buttons) button.interactable = true;
                     foreach (var elem in images) elem.raycastTarget = true;
                 }

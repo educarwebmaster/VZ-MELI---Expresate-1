@@ -1,12 +1,15 @@
 ﻿using System.Collections;
+using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score {
-    public class QuestWork : MonoBehaviour {
+namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score
+{
+    public class MultipleChooise : MonoBehaviour
+    {
         #region Attributes
 
         [Header("Evaluable")] [Tooltip("Verifica que la respuesta se evaluable")]
@@ -68,7 +71,8 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         /// <summary>
         /// Estados corrrespondientes a las respuestas
         /// </summary>
-        public enum AnswerStatus {
+        public enum AnswerStatus
+        {
             Locked,
             None
         }
@@ -78,6 +82,8 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
 
         #endregion
 
+        [SerializeField] private FXAudio _fxAudio;
+
 
         /// <summary>
         /// Verifica que el elemento se evaluable y no este bloqueado, al precionar click desactiva el raycast target y lo vuelve interactable para grupos
@@ -86,12 +92,12 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
             if (IsValuable && AnswerValue == AnswerStatus.None) {
                 if (HasRightAnswer) {
                     _scoreManager.IncreaseScore();
+                    _fxAudio.PlayAudio(2);
                 }
                 else {
                     _scoreManager.ReduceScore();
+                    _fxAudio.PlayAudio(1);
                 }
-
-
             }
 
             if (DisableButton) {
@@ -107,7 +113,7 @@ namespace Resource.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
                 StartCoroutine(CustomDelay(CustomAmountDelay));
             }
 
-            if (_scoreManager.TestTries == 0 || _scoreManager.ActivitiesTries == 0) {
+            if (_scoreManager.TestTries == 0 || _scoreManager.MultipleActivitiesTries == 0) {
                 _scoreManager.DisableActivities();
                 StartCoroutine(CustomDelay(CustomAmountDelay));
             }

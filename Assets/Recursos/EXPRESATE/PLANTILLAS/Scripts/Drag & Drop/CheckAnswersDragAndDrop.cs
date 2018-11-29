@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 {
-    public class CheckAnswers : MonoBehaviour
+    public class CheckAnswersDragAndDrop : MonoBehaviour
     {
         public GameObject[] _drags;
         public GameObject[] _drops;
