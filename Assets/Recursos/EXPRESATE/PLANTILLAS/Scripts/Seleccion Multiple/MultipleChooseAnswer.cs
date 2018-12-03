@@ -32,7 +32,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 
             isChoosed = true;
             _buttonComponent.interactable = false;
-            //transform.localScale = Vector3.one * 1.2f;  //Aumenta la escala del elemento
+            transform.localScale = Vector3.one * 1.2f;  //Aumenta la escala del elemento
         }
     }
 }

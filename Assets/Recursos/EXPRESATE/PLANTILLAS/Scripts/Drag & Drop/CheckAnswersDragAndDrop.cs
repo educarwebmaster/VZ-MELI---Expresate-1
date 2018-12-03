@@ -29,6 +29,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         public int Delay;
 
 
+        
+
         private void OnEnable() {
             ResetDrags();
         }
