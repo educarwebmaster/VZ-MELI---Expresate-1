@@ -39,7 +39,7 @@ Shader "Toon/Cutoff"
 			#pragma surface surf Toon
 			#include "ToonSurface.cginc"
 			ENDCG
-		*/
+		*
 
 		float4 _Color;
 		sampler2D _MainTex;

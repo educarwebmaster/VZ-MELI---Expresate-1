@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Resource/EXPRESATE/RESPUESTA MULTIPLE/Scenes/DRAG AND DROP.unity
-    guid: e53928aa15a53c145844a52f7a8333bf
+    path: Assets/Recursos/EXPRESATE/UNIDAD 6/UNIDAD 6.unity
+    guid: 3107a81d4534ee2438cbd43905506b90
   m_configObjects: {}
