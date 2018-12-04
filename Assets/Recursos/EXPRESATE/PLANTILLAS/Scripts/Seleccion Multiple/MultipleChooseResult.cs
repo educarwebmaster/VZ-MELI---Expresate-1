@@ -13,7 +13,10 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 
         private void Awake() {
             _image = GetComponent<Image>();
-//            gameObject.SetActive(false);
+        }
+
+        private void OnEnable() {
+            _image.enabled = false;
         }
 
 
@@ -22,6 +25,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
         /// </summary>
         /// <param name="status">true, positivo; falso, error</param>
         public void AssignResult(bool status) {
+            _image.enabled = true;
             _image.sprite = status ? _sprites[0] : _sprites[1];
         }
     }

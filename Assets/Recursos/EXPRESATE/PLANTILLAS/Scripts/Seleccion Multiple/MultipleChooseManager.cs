@@ -3,6 +3,7 @@ using Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
 {
@@ -24,6 +25,10 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
         [SerializeField] [Header("Navegacion: ")]
         private NavegationManager _navegationManager;
 
+
+        [SerializeField] [Header("Boton validar:")]
+        private Button _validarButton;
+
         private void OnEnable() {
             ResetQuestion(true);
         }
@@ -40,6 +45,8 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
             foreach (var question in Questions) {
                 question.SetAnswers(status);
             }
+
+            _validarButton.enabled = status;
         }
 
         /// <summary>
@@ -52,18 +59,19 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
                 question.SetAnswers(false);
                 MultipleChooseAnswer[] answer = question.gameObject.GetComponentsInChildren<MultipleChooseAnswer>();
                 foreach (var currentAnswer in answer) {
-                    if (currentAnswer.isChoosed) {
-                        if (currentAnswer.isRight) {
+                    if (currentAnswer.IsChoosed) {
+                        if (currentAnswer.IsRight) {
                             rightAnswer++;
-                           // currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(true);
+                            currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(true);
                         }
                         else {
-                            //currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(false);
+                            currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(false);
                         }
                     }
                 }
             }
 
+            _validarButton.enabled = false;
             //Reproduce audio si el numero de respuestas positivas coincide con el numero de preguntas
             _fxAudio.PlayAudio(rightAnswer == Questions.Length ? 2 : 1);
             //Aumenta el puntaje

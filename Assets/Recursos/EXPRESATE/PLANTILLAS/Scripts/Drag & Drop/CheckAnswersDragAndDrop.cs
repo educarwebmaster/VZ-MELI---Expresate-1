@@ -6,6 +6,7 @@ using Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 {
@@ -28,8 +29,9 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         [Header("Delay al activar el sigueinte layout")] [EnableIf("Forward", true)]
         public int Delay;
 
+        [SerializeField] [Header("Boton Validar:")]
+        private Button _validarButton;
 
-        
 
         private void OnEnable() {
             ResetDrags();
@@ -78,6 +80,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
             foreach (var elem in _drags) {
                 elem.gameObject.GetComponent<DragHandler>().CanMove = status;
             }
+
+            _validarButton.enabled = status;
         }
 
 

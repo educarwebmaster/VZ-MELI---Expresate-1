@@ -45,7 +45,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
                 ans.gameObject.GetComponent<Button>().interactable = status;
             }
 
-            enableResult();
+          
         }
 
 
@@ -59,13 +59,6 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
                 var index = Random.Range(0, answerPos.Count);
                 ans.gameObject.transform.position = answerPos[index];
                 answerPos.Remove(answerPos[index]);
-            }
-        }
-
-        void enableResult() {
-            foreach (var ans in _answers) {
-                MultipleChooseResult result = ans.GetComponentInChildren<MultipleChooseResult>();
-                Debug.Log(result);
             }
         }
     }
