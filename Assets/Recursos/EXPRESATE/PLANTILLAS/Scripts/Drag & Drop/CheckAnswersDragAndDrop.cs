@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
 using Boo.Lang;
+using Recursos.EXPRESATE.PLANTILLAS.Scripts.InputText;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
@@ -15,6 +17,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         public GameObject[] _drags;
         public GameObject[] _drops;
         private bool _checkTrigger;
+
+
         private int _respuestasPositivas;
 
         [Header("Audio")] [SerializeField] private FXAudio _fxAudio;
@@ -29,6 +33,12 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         [Header("Delay al activar el sigueinte layout")] [EnableIf("Forward", true)]
         public int Delay;
 
+
+        [Header("Input question")] public bool HasInputActivity;
+
+        [SerializeField] [EnableIf("HasInputActivity", true)]
+        private InputTextQuestion _inputTextQuestion;
+
         [SerializeField] [Header("Boton Validar:")]
         private Button _validarButton;
 
@@ -36,6 +46,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         private void OnEnable() {
             ResetDrags();
         }
+
 
         /// <summary>
         /// Verifica que el numero de drags sea cero
@@ -49,9 +60,12 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                         if (drags.gameObject.name == drops.gameObject.name) {
                             if (drags.transform.parent.gameObject.name == drops.gameObject.name) {
                                 _scoreManager.IncreaseScore();
-                                drags.GetComponent<DragHandler>().SetImgCalification();
+                                drags.GetComponent<DragHandler>().SetImgCalification(true);
                                 //A medidad que vanyan aumentando la respuestas positivas este numero ira disminuyendo
                                 _respuestasPositivas--;
+                            }
+                            else {
+                                drags.GetComponent<DragHandler>().SetImgCalification(false);
                             }
                         }
                     }
@@ -62,7 +76,17 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 _checkTrigger = true;
             }
 
-            if (_checkTrigger) {
+            if (_checkTrigger && _inputTextQuestion != null && HasInputActivity) {
+               
+                _fxAudio.PlayAudio(_respuestasPositivas == 0 && _inputTextQuestion.CheckInputAnswer() ? 2 : 1);
+                //Si permite ir hacia la siguiente layout
+                if (Forward && _navegationManager != null) {
+                    _navegationManager.Forward(Delay);
+                }
+            }
+
+            if (HasInputActivity == false && _checkTrigger && _inputTextQuestion == null) {
+               
                 _fxAudio.PlayAudio(_respuestasPositivas == 0 ? 2 : 1);
                 //Si permite ir hacia la siguiente layout
                 if (Forward && _navegationManager != null) {

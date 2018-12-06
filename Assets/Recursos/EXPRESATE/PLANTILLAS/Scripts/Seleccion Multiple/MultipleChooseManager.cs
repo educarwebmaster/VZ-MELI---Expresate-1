@@ -1,11 +1,10 @@
 ﻿using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
-using Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
+namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 {
     public class MultipleChooseManager : MonoBehaviour
     {
@@ -22,9 +21,16 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
         [Header("Administrador de audios")] [SerializeField]
         private FXAudio _fxAudio;
 
+        public FXAudio FxAudio {
+            get => _fxAudio;
+            set => _fxAudio = value;
+        }
+
         [SerializeField] [Header("Navegacion: ")]
         private NavegationManager _navegationManager;
 
+        [Header("Tiempo de retraso para revisar la actividad")] [SerializeField]
+        private float _forwardDelay;
 
         [SerializeField] [Header("Boton validar:")]
         private Button _validarButton;
@@ -59,13 +65,29 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
                 question.SetAnswers(false);
                 MultipleChooseAnswer[] answer = question.gameObject.GetComponentsInChildren<MultipleChooseAnswer>();
                 foreach (var currentAnswer in answer) {
-                    if (currentAnswer.IsChoosed) {
-                        if (currentAnswer.IsRight) {
-                            rightAnswer++;
-                            currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(true);
+                    if (currentAnswer.Answer == MultipleChooseAnswer.ToDoAnswer.MuestraResultado) {
+                        if (currentAnswer.IsChoosed) {
+                            if (currentAnswer.IsRight) {
+//                                rightAnswer++;
+                                _scoreManager.IncreaseScore();
+                                currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>()
+                                    .AssignResult(true);
+                            }
+                            else {
+                                currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>()
+                                    .AssignResult(false);
+                            }
                         }
-                        else {
-                            currentAnswer.gameObject.GetComponentInChildren<MultipleChooseResult>().AssignResult(false);
+                    }
+                    else if (currentAnswer.Answer == MultipleChooseAnswer.ToDoAnswer.RemplazaResultado) {
+                        if (currentAnswer.IsChoosed) {
+                            if (currentAnswer.IsRight) {
+                                currentAnswer.AssignImgCalification(true);
+                                rightAnswer++;
+                            }
+                            else {
+                                currentAnswer.AssignImgCalification(false);
+                            }
                         }
                     }
                 }
@@ -75,9 +97,9 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts
             //Reproduce audio si el numero de respuestas positivas coincide con el numero de preguntas
             _fxAudio.PlayAudio(rightAnswer == Questions.Length ? 2 : 1);
             //Aumenta el puntaje
-            _scoreManager.IncreaseScore();
+            //_scoreManager.IncreaseScore();
             //Espera n segundos y dirige al siguiente layout en el navegationManager
-            _navegationManager.Forward(2);
+            _navegationManager.Forward(_forwardDelay);
         }
 
 

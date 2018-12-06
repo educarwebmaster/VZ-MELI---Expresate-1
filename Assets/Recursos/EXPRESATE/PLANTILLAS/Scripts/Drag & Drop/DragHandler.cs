@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
@@ -17,14 +18,29 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         [Tooltip("Permite remplazar la imagen por otra al ser calificado")] [SerializeField]
         private bool _remplazarImagen;
 
+        [EnableIf("_remplazarImagen", true)] [Tooltip("Imagen a remplazar despues de calificar")]
+        private Sprite _estadoAnterior;
+
         [EnableIf("_remplazarImagen", true)]
         [Tooltip("Imagen a remplazar despues de calificar")]
         [Header("Imagen de Calificación")]
         [SerializeField]
-        private Sprite _estadoAnterior, _imgCalificacion;
+        private Sprite _imgCorrecta;
+
+        [SerializeField] private Sprite _imgErronea;
 
         public GameObject ElementParent;
 
+
+        private void Awake() {
+//            ElementParent = transform.parent.gameObject;
+            _canvasGroup = GetComponent<CanvasGroup>();
+        }
+
+
+        private void OnEnable() {
+            SetImgEstadoAnterior();
+        }
 
         private void Start() {
             //Asigna la id como nombre del elemento
@@ -35,8 +51,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// <summary>
         /// Cambia la imagen asignada luego de calificar
         /// </summary>
-        public void SetImgCalification() {
-            GetComponent<Image>().sprite = _imgCalificacion;
+        public void SetImgCalification(bool status) {
+            GetComponent<Image>().sprite = status ? _imgCorrecta : _imgErronea;
         }
 
         public void SetImgEstadoAnterior() {
@@ -49,16 +65,11 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 
         #region DRAG & DROP BEHAVIOUR
 
-        public  bool CanMove = true;
+        public bool CanMove = true;
         public static GameObject ItemBeginDragged;
         private Vector3 _startPosition;
         private Transform _startParent;
         private CanvasGroup _canvasGroup;
-
-        private void Awake() {
-            ElementParent = transform.parent.gameObject;
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
 
 
         #region  BeginDrag
