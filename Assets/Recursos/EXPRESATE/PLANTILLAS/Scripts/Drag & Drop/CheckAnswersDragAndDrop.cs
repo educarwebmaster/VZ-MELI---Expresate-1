@@ -16,6 +16,9 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
     {
         public GameObject[] _drags;
         public GameObject[] _drops;
+        private List<GameObject> _dragList = new List<GameObject>();
+        private List<GameObject> _dropList = new List<GameObject>();
+        public bool HasOrder;
         private bool _checkTrigger;
 
 
@@ -53,31 +56,75 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// </summary>
         public void CheckAnswer() {
             _respuestasPositivas = _drags.Length;
+            Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
             if (_checkTrigger == false) {
-                foreach (var drags in _drags) {
-                    foreach (var drops in _drops) {
-                        //Compara que el padre y el hijo tengan los mismo nombres;
-                        if (drags.gameObject.name == drops.gameObject.name) {
-                            if (drags.transform.parent.gameObject.name == drops.gameObject.name) {
-                                _scoreManager.IncreaseScore();
-                                drags.GetComponent<DragHandler>().SetImgCalification(true);
-                                //A medidad que vanyan aumentando la respuestas positivas este numero ira disminuyendo
-                                _respuestasPositivas--;
-                            }
-                            else {
-                                drags.GetComponent<DragHandler>().SetImgCalification(false);
+//                if (HasOrder) {
+//                    foreach (var drags in _drags) {
+//                        foreach (var drops in _drops) {
+//                            //Compara que el padre y el hijo tengan los mismo nombres;
+//                            if (drags.gameObject.name == drops.gameObject.name) {
+//                                if (drags.transform.parent.gameObject.name == drops.gameObject.name) {
+//                                    _scoreManager.IncreaseScore();
+//                                    drags.GetComponent<DragHandler>().SetImgCalification(true);
+//                                    //A medidad que vanyan aumentando la respuestas positivas este numero ira disminuyendo
+//                                    _respuestasPositivas--;
+//                                    //                                _respuestasPositivas = _respuestasPositivas > 0
+//                                    //                                    ? _respuestasPositivas - 1
+//                                    //                                    : _respuestasPositivas;
+//                                    Debug.Log("Respuestas restantes " + _respuestasPositivas);
+//                                }
+//                                else {
+//                                    drags.GetComponent<DragHandler>().SetImgCalification(false);
+//                                }
+//                            }
+//                        }
+//                    }
+                _respuestasPositivas = _drags.Length;
+                Debug.Log("Numero de respuestas  " + _respuestasPositivas);
+                if (_checkTrigger == false) {
+                    foreach (var t1 in _drags) {
+                        foreach (var t in _drops) {
+                            if (t1.gameObject.name == t.gameObject.name) {
+                                if (t1.transform.parent.gameObject == t.gameObject) {
+                                    t1.GetComponent<DragHandler>().SetImgCalification(true);
+                                    _scoreManager.IncreaseScore();
+                                    t.gameObject.GetComponent<SlotHandler>().Calificado = true;
+                                    _respuestasPositivas--;
+                                }
                             }
                         }
                     }
+
+//                if (HasOrder) {
+//                    foreach (var drags in _drags) {
+//                        foreach (var drops in _drops) {
+//                            //Compara que el padre y el hijo tengan los mismo nombres;
+//                            if (drags.gameObject.name == drops.gameObject.name) {
+//                                if (drags.transform.parent.gameObject.name == drops.gameObject.name) {
+//                                    _scoreManager.IncreaseScore();
+//                                    drags.GetComponent<DragHandler>().SetImgCalification(true);
+//                                    //A medidad que vanyan aumentando la respuestas positivas este numero ira disminuyendo
+//                                    _respuestasPositivas--;
+//                                    //                                _respuestasPositivas = _respuestasPositivas > 0
+//                                    //                                    ? _respuestasPositivas - 1
+//                                    //                                    : _respuestasPositivas;
+//                                    Debug.Log("Respuestas restantes " + _respuestasPositivas);
+//                                }
+//                                else {
+//                                    drags.GetComponent<DragHandler>().SetImgCalification(false);
+//                                }
+//                            }
+//                        }
                 }
 
 
+                //Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
+                CheckErrors();
                 SetAnswersStatus(false);
                 _checkTrigger = true;
             }
 
             if (_checkTrigger && _inputTextQuestion != null && HasInputActivity) {
-               
                 _fxAudio.PlayAudio(_respuestasPositivas == 0 && _inputTextQuestion.CheckInputAnswer() ? 2 : 1);
                 //Si permite ir hacia la siguiente layout
                 if (Forward && _navegationManager != null) {
@@ -86,7 +133,6 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
             }
 
             if (HasInputActivity == false && _checkTrigger && _inputTextQuestion == null) {
-               
                 _fxAudio.PlayAudio(_respuestasPositivas == 0 ? 2 : 1);
                 //Si permite ir hacia la siguiente layout
                 if (Forward && _navegationManager != null) {
@@ -126,10 +172,20 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 drags.Remove(drags[index]);
             }
 
-            //
+//
             SetAnswersStatus(true);
-            _scoreManager.ResetScore();
+//            _scoreManager.ResetScore();
             _checkTrigger = false;
+        }
+
+        public void CheckErrors() {
+            foreach (var drop in _drops) {
+                if (drop.gameObject.GetComponent<SlotHandler>().Calificado == false) {
+                    if (drop.gameObject.transform.childCount > 0) {
+                        drop.gameObject.GetComponentInChildren<DragHandler>().SetImgCalification(false);
+                    }
+                }
+            }
         }
     }
 }

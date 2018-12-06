@@ -3,6 +3,11 @@ using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMAL
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using UnityEngine;
 using UnityEngine.UI;
+using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
+using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 {
@@ -83,6 +88,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
                         if (currentAnswer.IsChoosed) {
                             if (currentAnswer.IsRight) {
                                 currentAnswer.AssignImgCalification(true);
+                                _scoreManager.IncreaseScore();
                                 rightAnswer++;
                             }
                             else {

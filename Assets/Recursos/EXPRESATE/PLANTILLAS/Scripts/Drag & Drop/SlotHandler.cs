@@ -2,8 +2,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
-    public class SlotHandler : MonoBehaviour, IDropHandler {
+namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
+{
+    public class SlotHandler : MonoBehaviour, IDropHandler
+    {
         #region DROP MANAGER
 
         [Header("Identificador")] public int Id;
@@ -11,9 +13,15 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts {
         [Header("¿Remplazar nombre?")] [Tooltip("Remplaza el nombre del elemento por la id asignada")] [SerializeField]
         private bool _remplazarNombre;
 
+        public bool Calificado;
+
         private void Start() {
             //Asigna la id como nombre del elemento
             gameObject.name = _remplazarNombre ? Id + "" : gameObject.name;
+        }
+
+        private void OnEnable() {
+            Calificado = false;
         }
 
         #endregion
