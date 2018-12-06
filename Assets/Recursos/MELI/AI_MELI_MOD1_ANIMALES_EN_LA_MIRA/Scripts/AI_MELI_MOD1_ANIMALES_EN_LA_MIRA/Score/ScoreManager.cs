@@ -116,6 +116,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
         /// Resetea el puntaje final y el numero de respuestas correctas.
         /// </summary>
         public void ResetScore() {
+            Debug.Log("Reset general Score");
             _rightAnswer = _failedAnswers = 0;
             if (_rightText != null || _wrongText != null) {
                
