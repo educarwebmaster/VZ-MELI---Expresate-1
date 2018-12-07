@@ -6,6 +6,8 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 {
     public class MultipleChooseQuestion : MonoBehaviour
     {
+        public bool NotHaveRandom;
+
         //Arreglo con las respuestas
         private MultipleChooseAnswer[] _answers;
 
@@ -44,21 +46,21 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
                 ans.gameObject.GetComponent<Image>().raycastTarget = status;
                 //ans.gameObject.GetComponent<Button>().interactable = status;
             }
-
-          
         }
 
 
         public void ResetAnwsers() {
-            List<Vector3> answerPos = new List<Vector3>();
-            foreach (var ans in _answers) {
-                answerPos.Add(ans.transform.position);
-            }
+            if (NotHaveRandom == false) {
+                List<Vector3> answerPos = new List<Vector3>();
+                foreach (var ans in _answers) {
+                    answerPos.Add(ans.transform.position);
+                }
 
-            foreach (var ans in _answers) {
-                var index = Random.Range(0, answerPos.Count);
-                ans.gameObject.transform.position = answerPos[index];
-                answerPos.Remove(answerPos[index]);
+                foreach (var ans in _answers) {
+                    var index = Random.Range(0, answerPos.Count);
+                    ans.gameObject.transform.position = answerPos[index];
+                    answerPos.Remove(answerPos[index]);
+                }
             }
         }
     }
