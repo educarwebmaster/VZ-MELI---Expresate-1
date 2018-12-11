@@ -5902,7 +5902,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4981038929924182}
-  - component: {fileID: 114515327150441780}
   m_Layer: 0
   m_Name: Final Maze
   m_TagString: Untagged
@@ -27096,17 +27095,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501aa662072a9b5419d1401c9ccc6e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssignResultText: 1
   _numQuestion: 8
   _rightAnswer: 0
   _failedAnswers: 0
   _textResult: {fileID: 114689856035829550}
   _numResult: {fileID: 114192061650244698}
   TestTries: 0
-  ActivitiesTries: 0
+  MultipleActivitiesTries: 0
   _navegationManager: {fileID: 0}
   ResetQuestWork: 0
   _QuestWork: []
+  AssignResultText: 1
   _rightText: {fileID: 114520866929613966}
   _wrongText: {fileID: 114206832451772128}
 --- !u!114 &114192061650244698
@@ -27660,30 +27659,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114515327150441780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819595712542146}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dbd480039f60a344bdc0ff90b9d70b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Algorithm: 1
-  FullRandom: 0
-  RandomSeed: 3
-  Floor: {fileID: 0}
-  Wall: {fileID: 1406717429768762, guid: 057a59f4e864eca43b3a48145a17362e, type: 2}
-  Pillar: {fileID: 0}
-  Rows: 8
-  Columns: 8
-  CellWidth: 4
-  CellHeight: 4
-  AddGaps: 0
-  GoalPrefab: {fileID: 1938198419093108, guid: 3f36521d9d9428c4c9c5a02425008f62, type: 2}
-  gaps: 0.2
 --- !u!114 &114520866929613966
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28045,10 +28020,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handleLimit: 0.8
   joystickMode: 0
-  inputVector: {x: 0, y: 0}
   background: {fileID: 224468061938607390}
   handle: {fileID: 224160780041661230}
-  joystickPosition: {x: 0, y: 0}
 --- !u!114 &114735191814167658
 MonoBehaviour:
   m_ObjectHideFlags: 1
