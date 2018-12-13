@@ -64,7 +64,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         }
 
         public void LoadScene() {
-            LoadedScene = !LoadedScene;
+            LoadedScene = true;
         }
 
         /// <summary>

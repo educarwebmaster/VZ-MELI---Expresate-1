@@ -2,15 +2,19 @@
 using AREAS.LENGUAJE.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Camera;
 using AREAS.LENGUAJE.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Recursos.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Player {
-    public class ElementPlayer : MonoBehaviour {
+namespace AREAS.LENGUAJE.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Player
+{
+    public class ElementPlayer : MonoBehaviour
+    {
         [SerializeField] private int _audioIndex;
 
-        [SerializeField] private CameraVideoRenderer _cameraVideoRenderer;
+
         [SerializeField] private UIAudios _uiAudios;
         [SerializeField] private Outline _outline;
         [SerializeField] private Animator[] _animator;
+        [SerializeField] private GameObject _videoPlayer;
 
         private bool _hasClicked;
 
@@ -19,10 +23,6 @@ namespace Recursos.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Player {
 
 
         private void Awake() {
-            _cameraVideoRenderer = _cameraVideoRenderer == null
-                ? GameObject.FindGameObjectWithTag(Tags.VIDEO_RENDER_CAMERA).GetComponent<CameraVideoRenderer>()
-                : null;
-
             if (_outline == null) {
                 _outline = GetComponent<Outline>();
             }
@@ -43,15 +43,16 @@ namespace Recursos.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Player {
         /// </summary>
         private void DesactivateSame() {
             foreach (var elem in _animator) elem.enabled = false;
-            
         }
 
         /// <summary>
         /// Al precionar click habilita Outline y reproduce el video en index
         /// </summary>
         private void OnMouseDown() {
-            if (!_cameraVideoRenderer.IsPlayingVideo && !_hasClicked) {
+            if (!_hasClicked) {
                 _uiAudios.PlaySound(_audioIndex);
+                _videoPlayer.SetActive(true);
+              
                 _outline.enabled = true;
                 _hasClicked = true;
                 Restore();
@@ -62,7 +63,7 @@ namespace Recursos.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Player {
         /// Deshabilita el outline al soltar el click
         /// </summary>
         private void OnMouseUp() {
-            if (_cameraVideoRenderer.IsPlayingVideo && _hasClicked) {
+            if (_hasClicked) {
                 _outline.enabled = false;
 
                 if (_animator != null) {

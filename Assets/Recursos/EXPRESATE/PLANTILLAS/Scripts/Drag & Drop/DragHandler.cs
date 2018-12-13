@@ -67,18 +67,19 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 
         public bool CanMove = true;
         public static GameObject ItemBeginDragged;
-        private Vector3 _startPosition;
-        private Transform _startParent;
+        [FormerlySerializedAs("_startPosition")] public  static Vector3 StartPosition;
+        [FormerlySerializedAs("_startParent")] public static Transform StartParent;
         private CanvasGroup _canvasGroup;
 
+       
 
         #region  BeginDrag
 
         public void OnBeginDrag(PointerEventData eventData) {
             if (CanMove) {
                 ItemBeginDragged = gameObject;
-                _startPosition = transform.position;
-                _startParent = transform.parent;
+                StartPosition = transform.position;
+                StartParent = transform.parent;
                 _canvasGroup.blocksRaycasts = false;
             }
         }
@@ -100,8 +101,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
             if (CanMove) {
                 ItemBeginDragged = null;
                 _canvasGroup.blocksRaycasts = true;
-                if (transform.parent == _startParent) {
-                    transform.position = _startPosition;
+                if (transform.parent == StartParent) {
+                    transform.position = StartPosition;
                 }
             }
         }

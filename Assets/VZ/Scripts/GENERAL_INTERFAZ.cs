@@ -339,14 +339,14 @@ public class GENERAL_INTERFAZ : MonoBehaviour {
 
     void Abrir_reproductor(int index)//abrir menu que sale despues de reporducir un video
     {
-        if (video_llamado)
-        {
-            Video.SetActive(true);
-            vcr.gameObject.SendMessage("OnOpenVideoFileIndex", index);
-            vcr.gameObject.SendMessage("OnPlayButton");
-            CamaraVideo.depth = 6;
-            Abrir_Controles_Video();
-        }   
+//        if (video_llamado)
+//        {
+//            Video.SetActive(true);
+//            vcr.gameObject.SendMessage("OnOpenVideoFileIndex", index);
+//            vcr.gameObject.SendMessage("OnPlayButton");
+//            CamaraVideo.depth = 6;
+//            Abrir_Controles_Video();
+//        }   
     }
 
     public void Cerrar_visor_3d()//cerrar menu que sale desues de un video
@@ -525,14 +525,7 @@ public class GENERAL_INTERFAZ : MonoBehaviour {
         www = new WWW(URL);
         yield return www;
         s = www.text.Split(new string[] { "+" }, StringSplitOptions.None);
-        if (s[0] == "correcto")
-        {
-            PopUp.SetActive(true);
-        }
-        else
-        {
-            PopUp.SetActive(false);
-        }
+        PopUp.SetActive(s[0] == "correcto");
     }
 }
 

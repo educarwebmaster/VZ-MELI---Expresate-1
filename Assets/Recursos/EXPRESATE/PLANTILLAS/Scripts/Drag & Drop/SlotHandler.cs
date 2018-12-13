@@ -38,6 +38,11 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 DragHandler.ItemBeginDragged.transform.SetParent(transform);
 //                Debug.Log(DragHandler.ItemBeginDragged.gameObject.name);
             }
+            else {
+                DragHandler.ItemBeginDragged.transform.SetParent(transform);
+                Item.transform.SetParent(DragHandler.StartParent);
+                Item.transform.position = DragHandler.StartPosition;
+            }
         }
 
         #endregion

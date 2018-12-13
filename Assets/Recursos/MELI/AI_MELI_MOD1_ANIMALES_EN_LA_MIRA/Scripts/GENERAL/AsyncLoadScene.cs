@@ -26,7 +26,7 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.GENERAL {
             StartCoroutine(LoadScene());
         }
 
-        IEnumerator LoadScene() {
+        public IEnumerator LoadScene() {
             yield return null;
 
             //Begin to load the Scene you specify
