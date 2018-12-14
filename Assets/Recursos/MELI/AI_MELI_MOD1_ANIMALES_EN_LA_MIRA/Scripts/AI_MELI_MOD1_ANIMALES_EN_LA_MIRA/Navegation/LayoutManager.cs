@@ -1,4 +1,5 @@
 ﻿using Audio;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -49,6 +50,7 @@ namespace Navegation {
         public GameObject Elemento => _elemento;
         [SerializeField] private NavBar _navbar;
 
+        
         #endregion
 
         #region "Puntaje"
@@ -98,7 +100,13 @@ namespace Navegation {
                     break;
             }
         }
+
+        public void ShowOwnContent() {
+            
+        }
     }
+    
+   
 
     #endregion
 }

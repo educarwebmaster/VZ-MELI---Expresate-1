@@ -45,6 +45,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         [SerializeField] [Header("Boton Validar:")]
         private Button _validarButton;
 
+        [Header("Random")] public bool HasNotRandom;
 
         private void OnEnable() {
             ResetDrags();
@@ -55,7 +56,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// Verifica que el numero de drags sea cero
         /// </summary>
         public void CheckAnswer() {
-            _respuestasPositivas = _drags.Length;
+        
             Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
             if (_checkTrigger == false) {
 //                if (HasOrder) {
@@ -79,8 +80,8 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 //                            }
 //                        }
 //                    }
-                _respuestasPositivas = _drags.Length;
-                Debug.Log("Numero de respuestas  " + _respuestasPositivas);
+                _respuestasPositivas = _drops.Length;
+//                Debug.Log("Numero de respuestas  " + _respuestasPositivas);
                 if (_checkTrigger == false) {
                     foreach (var t1 in _drags) {
                         foreach (var t in _drops) {
@@ -118,7 +119,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 }
 
 
-                //Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
+//                Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
                 CheckErrors();
                 SetAnswersStatus(false);
                 _checkTrigger = true;
@@ -166,10 +167,12 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 dragHandler.SetImgEstadoAnterior();
             }
 
-            foreach (var elem in _drags) {
-                var index = Random.Range(0, drags.Count);
-                elem.gameObject.transform.SetParent(drags[index].transform);
-                drags.Remove(drags[index]);
+            if (HasNotRandom != true) {
+                foreach (var elem in _drags) {
+                    var index = Random.Range(0, drags.Count);
+                    elem.gameObject.transform.SetParent(drags[index].transform);
+                    drags.Remove(drags[index]);
+                }
             }
 
 //
