@@ -6989,7 +6989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501aa662072a9b5419d1401c9ccc6e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _numQuestion: 20
+  _numQuestion: 13
   _rightAnswer: 0
   _failedAnswers: 0
   _textResult: {fileID: 114210386881577742}
