@@ -43,7 +43,10 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
         /// <param name="status"></param>
         public void SetAnswers(bool status) {
             foreach (var ans in _answers) {
-                ans.gameObject.GetComponent<Image>().raycastTarget = status;
+                if (ans != null) {
+                    ans.gameObject.GetComponent<Image>().raycastTarget = status;
+                }
+
                 //ans.gameObject.GetComponent<Button>().interactable = status;
             }
         }

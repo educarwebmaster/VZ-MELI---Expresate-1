@@ -56,7 +56,6 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// Verifica que el numero de drags sea cero
         /// </summary>
         public void CheckAnswer() {
-        
             Debug.Log("Numero de respuestas positivas " + _respuestasPositivas);
             if (_checkTrigger == false) {
 //                if (HasOrder) {
@@ -174,6 +173,12 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                     drags.Remove(drags[index]);
                 }
             }
+            else if (HasNotRandom) {
+                foreach (var elem in _drags) {
+                    elem.transform.SetParent(elem.GetComponent<DragHandler>().ElementParent.transform);
+                }
+            }
+
 
 //
             SetAnswersStatus(true);

@@ -39,6 +39,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
             _parent = gameObject.transform.parent.GetComponent<MultipleChooseQuestion>();
             _previusSprite = GetComponent<Image>().sprite;
             _disableSprite = GetComponent<Button>().spriteState;
+//            gameObject.GetComponent<Image>().SetNativeSize();
         }
 
         private void Start() {
@@ -64,6 +65,7 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
                     elem.gameObject.GetComponent<Button>().interactable = true;
                     elem.transform.localScale = Vector3.one;
                     elem.gameObject.GetComponent<MultipleChooseAnswer>().IsChoosed = false;
+//                    elem.gameObject.GetComponent<Image>().SetNativeSize();
                 }
             }
 
@@ -76,10 +78,12 @@ namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 
         public void AssignImgCalification(bool status) {
             gameObject.GetComponent<Button>().spriteState = status ? _rightState : _wrongState;
+//            gameObject.GetComponent<Image>().SetNativeSize();
         }
 
         public void AssignOriginalStatus() {
             gameObject.GetComponent<Image>().sprite = _previusSprite;
+//            gameObject.GetComponent<Image>().SetNativeSize();
             gameObject.GetComponent<Button>().spriteState = _disableSprite;
             gameObject.GetComponent<Button>().interactable = true;
         }

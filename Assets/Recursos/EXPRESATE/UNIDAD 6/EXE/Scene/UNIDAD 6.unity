@@ -8594,6 +8594,7 @@ MonoBehaviour:
   HasInputActivity: 0
   _inputTextQuestion: {fileID: 0}
   _validarButton: {fileID: 1286478564}
+  HasNotRandom: 0
 --- !u!1 &357840607
 GameObject:
   m_ObjectHideFlags: 0
@@ -16020,6 +16021,7 @@ MonoBehaviour:
   HasInputActivity: 1
   _inputTextQuestion: {fileID: 1784431256}
   _validarButton: {fileID: 233464925}
+  HasNotRandom: 0
 --- !u!1 &634881729
 GameObject:
   m_ObjectHideFlags: 0
@@ -16267,6 +16269,7 @@ MonoBehaviour:
   HasInputActivity: 0
   _inputTextQuestion: {fileID: 0}
   _validarButton: {fileID: 1958941576}
+  HasNotRandom: 0
 --- !u!1 &643749054
 GameObject:
   m_ObjectHideFlags: 0
@@ -19373,7 +19376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.747696}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3664855, y: 0}
+  m_AnchoredPosition: {x: 1.0571885, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.50000024, y: 0.50000036}
 --- !u!114 &768296308
@@ -39563,6 +39566,7 @@ MonoBehaviour:
   HasInputActivity: 0
   _inputTextQuestion: {fileID: 0}
   _validarButton: {fileID: 2105965163}
+  HasNotRandom: 0
 --- !u!1 &1580092489
 GameObject:
   m_ObjectHideFlags: 0
