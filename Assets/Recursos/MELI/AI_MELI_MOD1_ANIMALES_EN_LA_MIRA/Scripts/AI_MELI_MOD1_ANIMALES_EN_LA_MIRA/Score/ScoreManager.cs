@@ -7,21 +7,24 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score {
+namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score
+{
     /// <inheritdoc />
     /// <summary>
     /// Determina los puntajes del juego
     /// </summary>
-    public class ScoreManager : MonoBehaviour {
-        
-
+    public class ScoreManager : MonoBehaviour
+    {
         [SerializeField] private double _numQuestion, _rightAnswer, _failedAnswers;
         [SerializeField] private Text _textResult, _numResult;
 
         //TestTries = Intentos no evaluativos, aquellos que no aumentan el puntaje pero sin embargo si tienen cambio de estados
         //ActivitiesTries = Intentos validos en una actividad por intentos
         public int TestTries;
-        [FormerlySerializedAs("ActivitiesTries")] public int MultipleActivitiesTries;
+
+        [FormerlySerializedAs("ActivitiesTries")]
+        public int MultipleActivitiesTries;
+
         private int _testTries, _activitiesTries;
 
 
@@ -33,8 +36,8 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
 
         [SerializeField] [EnableIf("ResetQuestWork", true)]
         private GameObject[] _QuestWork;
-        
-        
+
+
         [Tooltip("Asigna el resultado de los intentos de forma positiva y negativa")] [SerializeField]
         private bool AssignResultText;
 
@@ -61,7 +64,6 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
             if (_wrongText != null && AssignResultText) {
                 _wrongText.text = _failedAnswers + "";
             }
-            
         }
 
 
@@ -119,7 +121,6 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
             Debug.Log("Reset general Score");
             _rightAnswer = _failedAnswers = 0;
             if (_rightText != null || _wrongText != null) {
-               
                 _rightText.text = _wrongText.text = "" + 0;
             }
 

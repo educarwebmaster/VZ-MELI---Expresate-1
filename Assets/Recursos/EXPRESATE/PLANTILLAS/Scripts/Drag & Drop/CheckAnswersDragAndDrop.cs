@@ -14,11 +14,10 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 {
     public class CheckAnswersDragAndDrop : MonoBehaviour
     {
-        public GameObject[] _drags;
-        public GameObject[] _drops;
-        private List<GameObject> _dragList = new List<GameObject>();
-        private List<GameObject> _dropList = new List<GameObject>();
-        public bool HasOrder;
+        [FormerlySerializedAs("_drags")] public GameObject[] Drags;
+        [FormerlySerializedAs("_drops")] public GameObject[] Drops;
+
+
         private bool _checkTrigger;
 
 
@@ -45,7 +44,11 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         [SerializeField] [Header("Boton Validar:")]
         private Button _validarButton;
 
-        [Header("Random")] public bool HasNotRandom;
+        [FormerlySerializedAs("HasNotRandom")] [Header("Random")]
+        public bool HasNotDragRandom;
+
+        [FormerlySerializedAs("HasDropRandom")] [FormerlySerializedAs("hasDropRandom")]
+        public bool HasDropActivityAndRandom;
 
         private void OnEnable() {
             ResetDrags();
@@ -79,11 +82,11 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
 //                            }
 //                        }
 //                    }
-                _respuestasPositivas = _drops.Length;
+                _respuestasPositivas = Drops.Length;
 //                Debug.Log("Numero de respuestas  " + _respuestasPositivas);
                 if (_checkTrigger == false) {
-                    foreach (var t1 in _drags) {
-                        foreach (var t in _drops) {
+                    foreach (var t1 in Drags) {
+                        foreach (var t in Drops) {
                             if (t1.gameObject.name == t.gameObject.name) {
                                 if (t1.transform.parent.gameObject == t.gameObject) {
                                     t1.GetComponent<DragHandler>().SetImgCalification(true);
@@ -147,7 +150,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// Habilita o deshabilita el drag de los elementos en _drags
         /// </summary>
         public void SetAnswersStatus(bool status) {
-            foreach (var elem in _drags) {
+            foreach (var elem in Drags) {
                 elem.gameObject.GetComponent<DragHandler>().CanMove = status;
             }
 
@@ -160,25 +163,44 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         /// </summary>
         public void ResetDrags() {
             List<GameObject> drags = new List<GameObject>();
-            foreach (var elem in _drags) {
+            List<GameObject> drops = new List<GameObject>();
+
+            foreach (var elem in Drags) {
                 DragHandler dragHandler = elem.GetComponent<DragHandler>();
                 drags.Push(dragHandler.ElementParent.gameObject);
                 dragHandler.SetImgEstadoAnterior();
             }
 
-            if (HasNotRandom != true) {
-                foreach (var elem in _drags) {
+            if (HasDropActivityAndRandom) {
+                foreach (var elem in Drops) {
+                    DragHandler dragHandler = elem.GetComponentInChildren<DragHandler>();
+                    drops.Add(dragHandler.ElementParent.gameObject);
+                    dragHandler.SetImgEstadoAnterior();
+                }
+
+                
+            }
+
+            if (HasNotDragRandom == false && HasDropActivityAndRandom == false) {
+                foreach (var elem in Drags) {
                     var index = Random.Range(0, drags.Count);
                     elem.gameObject.transform.SetParent(drags[index].transform);
                     drags.Remove(drags[index]);
                 }
             }
-            else if (HasNotRandom) {
-                foreach (var elem in _drags) {
+            else if (HasNotDragRandom && HasDropActivityAndRandom == false) {
+                foreach (var elem in Drags) {
                     elem.transform.SetParent(elem.GetComponent<DragHandler>().ElementParent.transform);
                 }
             }
 
+            else if (HasDropActivityAndRandom && HasNotDragRandom) {
+                foreach (var elem in Drops) {
+                    var index = Random.Range(0, drops.Count);
+                    elem.gameObject.transform.GetChild(0).SetParent(drops[index].transform);
+                    drops.Remove(drops[index]);
+                }
+            }
 
 //
             SetAnswersStatus(true);
@@ -187,7 +209,7 @@ namespace Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         }
 
         public void CheckErrors() {
-            foreach (var drop in _drops) {
+            foreach (var drop in Drops) {
                 if (drop.gameObject.GetComponent<SlotHandler>().Calificado == false) {
                     if (drop.gameObject.transform.childCount > 0) {
                         drop.gameObject.GetComponentInChildren<DragHandler>().SetImgCalification(false);

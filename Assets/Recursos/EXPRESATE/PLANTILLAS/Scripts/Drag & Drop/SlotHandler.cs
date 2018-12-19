@@ -1,4 +1,8 @@
-﻿using Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts;
+﻿using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
+using AREAS.LENGUAJE.EXPRESATE.SEPTIMO.VZ_LEN7_IMAGEN_ANIMACION.Scripts.Misc;
+using Recursos.EXPRESATE.RESPUESTA_MULTIPLE.Scripts;
+using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Misc;
+using Resource.MELI.AI_MELI_MOD1_PALABRAS_REPETIDAS.Scripts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +18,14 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         private bool _remplazarNombre;
 
         public bool Calificado;
+        public FXAudio _FxAudio;
+
+
+        private void Awake() {
+            if (_FxAudio != null) {
+                _FxAudio = GameObject.FindGameObjectWithTag(GENERAL_TAG.FXAUDIO).GetComponent<FXAudio>();
+            }
+        }
 
         private void Start() {
             //Asigna la id como nombre del elemento
@@ -42,6 +54,9 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
                 DragHandler.ItemBeginDragged.transform.SetParent(transform);
                 Item.transform.SetParent(DragHandler.StartParent);
                 Item.transform.position = DragHandler.StartPosition;
+                if (_FxAudio) {
+                    _FxAudio.PlayAudio(0);
+                }
             }
         }
 

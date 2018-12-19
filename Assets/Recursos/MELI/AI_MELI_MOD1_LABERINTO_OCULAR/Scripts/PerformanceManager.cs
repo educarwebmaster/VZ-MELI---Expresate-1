@@ -1,14 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Resource.LIBRO_F.AI_MELI_MOD1_LABERINTO_OCULAR.Scripts {
-    public class PerformanceManager : MonoBehaviour {
+namespace Resource.LIBRO_F.AI_MELI_MOD1_LABERINTO_OCULAR.Scripts
+{
+    public class PerformanceManager : MonoBehaviour
+    {
+        public int QualityLevel, SceneLevel;
+        public bool AR;
+
         private void Start() {
             //Asigna el limite max de FPS
             Application.targetFrameRate = 300;
             //Ajusta la calidad grafica segun index
-            QualitySettings.SetQualityLevel(
-                0);
+            QualitySettings.SetQualityLevel(QualityLevel);
+        }
+
+
+        private void OnEnable() {
+            if (AR) {
+                RestartLevel(SceneLevel);
+            }
         }
 
         /// <summary>

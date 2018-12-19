@@ -22,6 +22,7 @@ TagManager:
   - Asteroide
   - Alien
   - Bound
+  - AudioSystem
   layers:
   - Default
   - TransparentFX
