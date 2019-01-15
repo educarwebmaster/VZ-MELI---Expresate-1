@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 22161775}
   m_Layer: 0
-  m_Name: UI System
+  m_Name: VZA_LEN10_GENERACION_98
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,6 +558,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &147936060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &169109990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1110,7 +1112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256570545}
   m_Layer: 0
-  m_Name: PLANTILLA EXPRESATE
+  m_Name: VZA_LEN10_GENERACION_98
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2227,6 +2229,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf904f67546e7fb4ba1f86ed82f28658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QualityLevel: 0
+  SceneLevel: 0
+  AR: 0
 --- !u!1 &501077264
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,6 +2596,7 @@ MonoBehaviour:
   Id: 4
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &556579298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2736,6 +2742,7 @@ MonoBehaviour:
   Id: 7
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &596873197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3092,6 +3099,7 @@ MonoBehaviour:
   Id: 2
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &641580886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3238,6 +3246,7 @@ MonoBehaviour:
   Id: 8
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &675931390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3950,7 +3959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399585ac93d611f419fcba313c7b7a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _drags:
+  Drags:
   - {fileID: 1022702644}
   - {fileID: 639581725}
   - {fileID: 256869416}
@@ -3961,7 +3970,7 @@ MonoBehaviour:
   - {fileID: 252483852}
   - {fileID: 703366611}
   - {fileID: 266284422}
-  _drops:
+  Drops:
   - {fileID: 2032112738}
   - {fileID: 1193575608}
   - {fileID: 1919187069}
@@ -3972,7 +3981,6 @@ MonoBehaviour:
   - {fileID: 675931386}
   - {fileID: 1096617201}
   - {fileID: 1193119688}
-  HasOrder: 0
   _fxAudio: {fileID: 2057622809}
   _navegationManager: {fileID: 1377686533}
   _scoreManager: {fileID: 1412102071}
@@ -3981,6 +3989,8 @@ MonoBehaviour:
   HasInputActivity: 0
   _inputTextQuestion: {fileID: 0}
   _validarButton: {fileID: 1059952346}
+  HasNotDragRandom: 0
+  HasDropActivityAndRandom: 0
 --- !u!1 &906629781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,6 +5127,7 @@ MonoBehaviour:
   Id: 9
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1096617204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5373,6 +5384,7 @@ MonoBehaviour:
   Id: 5
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1193119691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5499,6 +5511,7 @@ MonoBehaviour:
   Id: 3
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1193575611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5627,6 +5640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac8ae034b158c4c89a4b27b3f8eafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotHaveRandom: 0
 --- !u!1 &1230043461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5946,6 +5960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac8ae034b158c4c89a4b27b3f8eafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotHaveRandom: 0
 --- !u!1 &1332250421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5994,6 +6009,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1332250424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7215,6 +7231,7 @@ MonoBehaviour:
   Id: 2
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1582130977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8271,6 +8288,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1753596455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8378,6 +8396,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1786799051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8655,6 +8674,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1825507464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8848,6 +8868,7 @@ MonoBehaviour:
   Id: 1
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1919187072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8994,6 +9015,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1945724499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9101,6 +9123,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &1956945472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9378,6 +9401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac8ae034b158c4c89a4b27b3f8eafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotHaveRandom: 0
 --- !u!1 &2004472798
 GameObject:
   m_ObjectHideFlags: 0
@@ -9426,6 +9450,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 0
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &2004472801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9553,6 +9578,7 @@ MonoBehaviour:
   Id: 0
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &2032112741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9681,6 +9707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efac8ae034b158c4c89a4b27b3f8eafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotHaveRandom: 0
 --- !u!1 &2057622808
 GameObject:
   m_ObjectHideFlags: 0
@@ -9995,6 +10022,7 @@ MonoBehaviour:
   Id: 6
   _remplazarNombre: 1
   Calificado: 0
+  _FxAudio: {fileID: 0}
 --- !u!114 &2116556214
 MonoBehaviour:
   m_ObjectHideFlags: 0
