@@ -3704,7 +3704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4842756181898876}
   m_Layer: 0
-  m_Name: AI_MELI_MOD1_ANIMALES_ESCONDIDOS
+  m_Name: PLANTILLA VZ  ACTIVIDAD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17990,6 +17990,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf904f67546e7fb4ba1f86ed82f28658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QualityLevel: 0
+  SceneLevel: 0
+  AR: 0
 --- !u!114 &114293534189614320
 MonoBehaviour:
   m_ObjectHideFlags: 1

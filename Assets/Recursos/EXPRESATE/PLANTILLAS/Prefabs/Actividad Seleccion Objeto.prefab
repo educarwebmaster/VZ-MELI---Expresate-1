@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224564958051493126}
   - component: {fileID: 114257445730075776}
   m_Layer: 5
-  m_Name: Actividad Seleccion Objecto
+  m_Name: Actividad Seleccion Objeto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
