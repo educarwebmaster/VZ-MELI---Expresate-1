@@ -30,6 +30,7 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
         private void Start() {
             //Asigna la id como nombre del elemento
             gameObject.name = _remplazarNombre ? Id + "" : gameObject.name;
+            
         }
 
         private void OnEnable() {
@@ -48,7 +49,7 @@ namespace Resource.EXPRESATE.RESPUESTA_MULTIPLE.Scripts
             //Si no hay un item en el slot el elemento seleccionado se vuelve hijo del slot sobre el cual se encuentra sobrepuesto.
             if (!Item && DragHandler.ItemBeginDragged.GetComponent<DragHandler>().CanMove) {
                 DragHandler.ItemBeginDragged.transform.SetParent(transform);
-//                Debug.Log(DragHandler.ItemBeginDragged.gameObject.name);
+                //Debug.Log(DragHandler.ItemBeginDragged.gameObject.name);
             }
             else {
                 DragHandler.ItemBeginDragged.transform.SetParent(transform);
