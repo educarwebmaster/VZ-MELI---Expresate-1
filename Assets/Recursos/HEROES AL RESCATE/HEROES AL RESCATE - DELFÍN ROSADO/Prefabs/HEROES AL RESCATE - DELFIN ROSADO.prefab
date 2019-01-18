@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 20533330609609242}
   - component: {fileID: 114229418812183234}
   m_Layer: 5
-  m_Name: HEROES AL RESCATE - MICO CHURUCO2
+  m_Name: "HEROES AL RESCATE - DELF\xCDN ROSADO"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 20150659151597496}
   - component: {fileID: 114185897499482608}
   m_Layer: 5
-  m_Name: HEROES AL RESCATE - MICO CHURUCO3
+  m_Name: "HEROES AL RESCATE - DELF\xCDN ROSADO"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 20853495335512678}
   - component: {fileID: 114764767963042614}
   m_Layer: 5
-  m_Name: HEROES AL RESCATE - MICO CHURUCO
+  m_Name: "HEROES AL RESCATE - DELF\xCDN ROSADO"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4638,7 +4638,7 @@ GameObject:
   - component: {fileID: 20021234718855286}
   - component: {fileID: 114652615510680208}
   m_Layer: 5
-  m_Name: HEROES AL RESCATE - MICO CHURUCO1
+  m_Name: "HEROES AL RESCATE - DELF\xCDN ROSADO"
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24686,7 +24686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.747696}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.95552427, y: 0}
+  m_AnchoredPosition: {x: 0.049503535, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.50000024, y: 0.50000036}
 --- !u!224 &224732878446764470

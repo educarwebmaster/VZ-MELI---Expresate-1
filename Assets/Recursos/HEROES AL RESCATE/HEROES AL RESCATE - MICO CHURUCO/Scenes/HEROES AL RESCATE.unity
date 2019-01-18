@@ -180,13 +180,13 @@ Prefab:
     - target: {fileID: 224225353124586770, guid: db7e6c9a35d52084cbda798822826613,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0.4764934
+      value: -0.04897466
       objectReference: {fileID: 0}
     - target: {fileID: 328526517350854950, guid: db7e6c9a35d52084cbda798822826613,
         type: 2}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 7bd413e0504da234eacdc1d6eabc37ab,
+      objectReference: {fileID: 32900000, guid: 99b8d511385802c40b70d5e094876050,
         type: 3}
     - target: {fileID: 328526517350854950, guid: db7e6c9a35d52084cbda798822826613,
         type: 2}
@@ -203,6 +203,21 @@ Prefab:
       propertyPath: m_ControlledAudioTrackCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114916015048791586, guid: db7e6c9a35d52084cbda798822826613,
+        type: 2}
+      propertyPath: Key
+      value: Wp8EmgP0yi7wEb5hnvcQ5Oup7hsKQuqAnJ2qxysR0FCESUTTqlMlRUCcicR7HdJpwSyUEVomYq4YnzCJ2VEAwW4uC4xmtKNqE8RuRpoTYvxqfnEqsfOiWfz5500OYWzVbVHYEjv8bMyUlEdy5B138oYtyyHHjM87rC2ybxcSnCMQh2z0sFJG2Y4ipxxO0VMZvkD9gbMn
+      objectReference: {fileID: 0}
+    - target: {fileID: 328526517350854950, guid: db7e6c9a35d52084cbda798822826613,
+        type: 2}
+      propertyPath: m_TargetAudioSources.Array.data[0]
+      value: 
+      objectReference: {fileID: 1667033355}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: db7e6c9a35d52084cbda798822826613, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &1667033355 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82665874992819570, guid: db7e6c9a35d52084cbda798822826613,
+    type: 2}
+  m_PrefabInternal: {fileID: 946682483}
