@@ -3,7 +3,7 @@
 --- !u!74 &7400000
 AnimationClip:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ojos2
   serializedVersion: 6
@@ -21,14 +21,14 @@ AnimationClip:
     - time: 0
       value: {fileID: 21300000, guid: ae76f05ff912df64b80aa3ea52a5cfcb, type: 3}
     - time: 1
-      value: {fileID: 21300000, guid: 140ffef3957dcb044b8f2387abb06c59, type: 3}
-    - time: 1.5
       value: {fileID: 21300000, guid: 82f8a64b46e4c76458fc0227099decb4, type: 3}
+    - time: 2
+      value: {fileID: 21300000, guid: 140ffef3957dcb044b8f2387abb06c59, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
     script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_SampleRate: 2
+  m_SampleRate: 1
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,14 +44,14 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: ae76f05ff912df64b80aa3ea52a5cfcb, type: 3}
-    - {fileID: 21300000, guid: 140ffef3957dcb044b8f2387abb06c59, type: 3}
     - {fileID: 21300000, guid: 82f8a64b46e4c76458fc0227099decb4, type: 3}
+    - {fileID: 21300000, guid: 140ffef3957dcb044b8f2387abb06c59, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 3
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

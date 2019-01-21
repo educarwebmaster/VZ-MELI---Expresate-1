@@ -1,0 +1,40 @@
+Actividad 5 alimentar el ojo. Reto 1
+Las palabras van apareciendo paulatinamente en forma horizontal por filas
+
+pacto             lora                     criollo                bella                 libra
+bebé              cosa                   niño                   luces                piso
+gallo               bastón                kilo                    timón                cola
+actor               luego                  noche               grado               gorda
+queso             aula                    muslo                salir                 cadera
+oveja              pronto                 sobre               blusa                patín
+enano             panela                tarro                  sobre              cadera
+nigua              susto                  tapete               tienen              llanto
+libro                dedo                  vientre               amar               traje
+puerto             salón                 carro                  lora                 sello
+
+
+
+
+Las 20 palabras correctas 
+que van en los dulces:                       Palabras erroneas:
+
+pacto                                                               actor
+niño                                                                 lora                                                               
+piso                                                                patín
+gallo                                                               blusa
+kilo                                                                  traje
+luego                                                              gorda
+grado                                                              libra
+queso                                                             amor
+muslo                                                             cola
+pronto                                                             bebé
+enano                                                             panela
+tarro                                                                luces
+susto                                                              timón
+llanto                                                               cadera
+libro                                                                 nigua
+dedo                                                               cosa
+puerto                                                             noche
+carro                                                               salir
+sello                                                                tapete
+criollo                                                              bastón

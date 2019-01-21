@@ -23,6 +23,10 @@ TagManager:
   - Alien
   - Bound
   - AudioSystem
+  - Correcta
+  - Incorrecta
+  - Techo
+  - Piso
   layers:
   - Default
   - TransparentFX

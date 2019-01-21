@@ -132,6 +132,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         private IEnumerator _Forward() {
             yield return new WaitForSeconds(DelaySeconds);
             var siguienteElemento = LayoutActual() + 1;
+            //Time.timeScale = 1f;
             //Debug.Log(siguienteElemento + " index");
             if (siguienteElemento > 0 && siguienteElemento < _gameElements.Length) {
                 StartCoroutine(CustomDelay(DelaySeconds));
@@ -147,7 +148,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         private IEnumerator _Forward(float seconds) {
             yield return new WaitForSeconds(seconds);
             var siguienteElemento = LayoutActual() + 1;
-
+            //Time.timeScale = 1f;
             if (siguienteElemento > 0 && siguienteElemento < _gameElements.Length) {
                 GoToElement(siguienteElemento);
             }
