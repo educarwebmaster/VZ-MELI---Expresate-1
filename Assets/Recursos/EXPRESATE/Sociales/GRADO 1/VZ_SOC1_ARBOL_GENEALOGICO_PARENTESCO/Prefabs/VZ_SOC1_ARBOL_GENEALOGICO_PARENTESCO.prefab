@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4325112273194962}
   m_Layer: 0
-  m_Name: HEROES AL RESCATE - MICO CHURUCO
+  m_Name: VZ_SOC1_ARBOL_GENEALOGICO_PARENTESCO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

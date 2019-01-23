@@ -1,5 +1,7 @@
 ﻿
 
+using UnityEditor.PackageManager;
+
 namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Misc {
     /// <summary>
     /// Tags generales
@@ -18,5 +20,8 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         public static string TECHO = "Techo";
         public static string PISO = "Piso";
         public static string ESTRELLA = "Estrella";
+        public static string NAVEGATION_MANAGER = "NavegationManager";
+        public static string SCORE_MANAGER = "ScoreManager";
+        public static string FXAUDIO = "FxAudio";
     }
 }

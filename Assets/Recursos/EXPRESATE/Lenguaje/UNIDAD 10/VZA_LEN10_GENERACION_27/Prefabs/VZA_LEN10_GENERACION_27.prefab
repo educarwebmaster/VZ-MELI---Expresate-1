@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1089807076513260
 GameObject:
   m_ObjectHideFlags: 1
@@ -1047,7 +1047,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1867815829280716
 GameObject:
   m_ObjectHideFlags: 1
@@ -1063,7 +1063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1875774401790614
 GameObject:
   m_ObjectHideFlags: 1
@@ -1654,6 +1654,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 437f5e0e0cf27004db8e8a99e5fd5d06, type: 3}
   - {fileID: 8300000, guid: a933f7c8ef1c0a948b8068d00bc81c2d, type: 3}
   - {fileID: 8300000, guid: 8e964fae80e84cc48a9ec57a5d9cffc5, type: 3}
+  - {fileID: 8300000, guid: d90c52a2dc328014eaac7f190c83f457, type: 3}
   _audioSource: {fileID: 82434097709697510}
   _navegationManager: {fileID: 114200743479262330}
   _fxAudio: {fileID: 114479610629212510}
@@ -3796,9 +3797,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _escena: 3
-  TieneAudio: 0
-  AudioIndex: 1
-  _ownAudios: {fileID: 0}
+  TieneAudio: 1
+  AudioIndex: 4
+  _ownAudios: {fileID: 114021516452681090}
   MuestraInformacion: 0
   _elemento: {fileID: 0}
   _navbar: {fileID: 114574155805062910}
@@ -5987,7 +5988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22, y: -77}
+  m_AnchoredPosition: {x: 404, y: 122}
   m_SizeDelta: {x: 272, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224007888477625176
@@ -6141,7 +6142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -538.5, y: 122}
+  m_AnchoredPosition: {x: -16, y: -77}
   m_SizeDelta: {x: 272, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224110837519512920
@@ -6159,7 +6160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -137, y: 136}
+  m_AnchoredPosition: {x: -74, y: 136}
   m_SizeDelta: {x: 272, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224114500022788956
@@ -6664,7 +6665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 272.1, y: 119}
+  m_AnchoredPosition: {x: -517, y: 119}
   m_SizeDelta: {x: 272, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224523358257192610

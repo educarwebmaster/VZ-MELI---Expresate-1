@@ -27,6 +27,9 @@ TagManager:
   - Incorrecta
   - Techo
   - Piso
+  - NavegationManager
+  - ScoreManager
+  - FxAudio
   layers:
   - Default
   - TransparentFX
