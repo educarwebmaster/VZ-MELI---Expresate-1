@@ -17,5 +17,6 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         public static string INCORRECTA = "Incorrecta";
         public static string TECHO = "Techo";
         public static string PISO = "Piso";
+        public static string ESTRELLA = "Estrella";
     }
 }
