@@ -6,7 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Recursos/MELI/AI_MELI_MOD1_TELESCOPIO NUMERICO/Scenes/AI_MELI_MOD1_TELESCOPIO
       NUMERICO.unity
     guid: 63f3f90189b2ec34d962df0021d9b02e
+=======
+    path: Assets/Recursos/MELI/AI_MELI_MOD1_PALABRAS_REPETIDAS/Scenes/GAME_AI_MELI_MOD1_PALABRAS_REPETIDAS.unity
+    guid: 1a9343923f5a1e0448e5b945fba2d14c
+>>>>>>> db3dbc09ef7e032e80a44a889e2559c96ec1cfc1
   m_configObjects: {}

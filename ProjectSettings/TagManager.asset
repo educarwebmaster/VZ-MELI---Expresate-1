@@ -27,9 +27,15 @@ TagManager:
   - Incorrecta
   - Techo
   - Piso
+<<<<<<< HEAD
   - CoinRight
   - CoinWrong
   - Estrella
+=======
+  - NavegationManager
+  - ScoreManager
+  - FxAudio
+>>>>>>> db3dbc09ef7e032e80a44a889e2559c96ec1cfc1
   layers:
   - Default
   - TransparentFX

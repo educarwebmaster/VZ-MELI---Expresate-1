@@ -1922,6 +1922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf904f67546e7fb4ba1f86ed82f28658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QualityLevel: 0
+  SceneLevel: 0
+  AR: 0
 --- !u!4 &1077857408
 Transform:
   m_ObjectHideFlags: 0
@@ -2814,6 +2817,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052451844102312, guid: 5bb097e1dedfe34408e3dd239863f1b5,
+        type: 2}
+      propertyPath: throwForceInZ
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bb097e1dedfe34408e3dd239863f1b5, type: 2}

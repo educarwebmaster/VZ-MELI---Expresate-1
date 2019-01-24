@@ -1,10 +1,9 @@
-﻿
-
-namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Misc {
+﻿namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Misc {
     /// <summary>
     /// Tags generales
     /// </summary>
-    public static class TAGS {
+    public static class TAGS
+    {
         public static string ACTIVIDAD_TAG = "actividad";
         public static string SALIR_TAG = "salir";
         public static string DESEMPEÑO_TAG = "desempeño";
@@ -18,5 +17,8 @@ namespace Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_AN
         public static string TECHO = "Techo";
         public static string PISO = "Piso";
         public static string ESTRELLA = "Estrella";
+        public static string NAVEGATION_MANAGER = "NavegationManager";
+        public static string SCORE_MANAGER = "ScoreManager";
+        public static string FXAUDIO = "FxAudio";
     }
 }
