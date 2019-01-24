@@ -5,10 +5,10 @@ using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANI
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Recursos.MELI.AI_MELI_MOD1_ALIMENTAR_EL_OJO.Scripts {
-    public class ActivityScore : MonoBehaviour {
-        //Array para guardar los objetos
-        [Header("Objetos Dulces:")] public GameObject[] ArrayDulces;
+namespace Recursos.MELI.AI_MELI_MOD1_TELESCOPIO_NUMERICO.Scripts {
+	public class ActivityMaganer : MonoBehaviour {
+
+	 [Header("Objetos Estrellas:")] public GameObject[] ArrayDulces;
 
         [SerializeField] public GameObject _personaje;
 
@@ -18,6 +18,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_ALIMENTAR_EL_OJO.Scripts {
         [Header("Administrador de audios")] [SerializeField]
         public FXAudio _FxAudio;
 
+            
         [SerializeField] public Transform _piso;
         public int Intentos, Aciertos;
 
