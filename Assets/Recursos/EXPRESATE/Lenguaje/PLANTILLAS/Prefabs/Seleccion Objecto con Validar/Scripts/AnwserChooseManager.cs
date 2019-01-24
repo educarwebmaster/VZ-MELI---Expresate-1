@@ -18,6 +18,7 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
         [SerializeField] private ScoreManager _scoreManager;
         [SerializeField] public Sprite Choosed, Right, Wrong;
         [SerializeField] public Status status;
+        [SerializeField] public QuestionChooseManager _QuestionChooseManager;
 
         private Image _imageComponent;
         private Sprite _originalSprite;
@@ -50,6 +51,9 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
             _scoreManager = _scoreManager == null
                 ? GameObject.FindGameObjectWithTag(TAGS.SCORE_MANAGER).GetComponent<ScoreManager>()
                 : _scoreManager;
+            _QuestionChooseManager = _QuestionChooseManager == null
+                ? GetComponentInParent<QuestionChooseManager>()
+                : _QuestionChooseManager;
             _imageComponent = GetComponent<Image>();
         }
 
@@ -66,16 +70,34 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
         /// Asigna una imagen y modifica el estad
         /// </summary>
         public void ChooseAnswer() {
-            if (status == Status.None) {
-                status = Status.Choosed;
-                _fxAudio.PlayAudio(0);
-                AssignSprite(Choosed);
+            if (_QuestionChooseManager.AnswerOptions > 0) {
+                switch (status) {
+                    case Status.None:
+                        status = Status.Choosed;
+                        _QuestionChooseManager.AnswerOptions--;
+                        _fxAudio.PlayAudio(0);
+                        AssignSprite(Choosed);
+                        break;
+                    case Status.Choosed:
+                        ResetAnswer();
+                        _QuestionChooseManager.AnswerOptions++;
+                        _fxAudio.PlayAudio(0);
+                        break;
+                }
             }
-            else if (status == Status.Choosed) {
-                status = Status.None;
-                _fxAudio.PlayAudio(0);
-                AssignSprite(_originalSprite);
+
+            else if (_QuestionChooseManager.AnswerOptions == 0) {
+                if (status == Status.Choosed) {
+                    ResetAnswer();
+                    _QuestionChooseManager.AnswerOptions++;
+                    _fxAudio.PlayAudio(0);
+                }
             }
+        }
+
+        public void ResetAnswer() {
+            status = Status.None;
+            AssignSprite(_originalSprite);
         }
     }
 }

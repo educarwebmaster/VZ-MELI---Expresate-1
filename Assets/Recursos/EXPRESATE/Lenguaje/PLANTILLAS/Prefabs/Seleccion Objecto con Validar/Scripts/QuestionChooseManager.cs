@@ -1,7 +1,9 @@
-﻿using Boo.Lang;
+﻿using AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Audio;
+using Boo.Lang;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Misc;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Score;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +11,29 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
 {
     public class QuestionChooseManager : MonoBehaviour
     {
-        //Verifica si la actividad tiene o no random
+        [Header("Tiempo de espera para redirigir al siguiente Layout")]
+        public bool HaveDelay;
+
+        private bool _scored;
+
+        [SerializeField] [EnableIf("HaveDelay")]
+        private float _delay;
+
+        [Header("Random")] [Tooltip("Verifica si la actividad tiene o no random")]
         public bool HaveRandom;
 
-        [SerializeField] private NavegationManager _navegationManager;
+        [Header("Número de respuestas")] [Tooltip("Numero de opciones a seleccionar")]
+        public int AnswerOptions;
+
+        private int _numAnswer;
+
+        [Header("Los siguientes atributos a asignar son opcionales")] [SerializeField]
+        private NavegationManager _navegationManager;
+
         [SerializeField] private ScoreManager _scoreManager;
         [SerializeField] private AnwserChooseManager[] _Answers;
+        [SerializeField] private FXAudio _fxAudio;
+
 
         private void Awake() {
             FillAnswerArray();
@@ -22,6 +41,10 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
 
         private void OnEnable() {
             ResetQuestion();
+        }
+
+        private void Start() {
+            _numAnswer = AnswerOptions;
         }
 
 
@@ -39,16 +62,44 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
                 ? GameObject.FindGameObjectWithTag(TAGS.SCORE_MANAGER).GetComponent<ScoreManager>()
                     .GetComponent<ScoreManager>()
                 : _scoreManager;
+            _fxAudio = _fxAudio == null
+                ? GameObject.FindGameObjectWithTag(TAGS.FXAUDIO).GetComponent<FXAudio>()
+                : _fxAudio;
         }
 
-        private void CheckAnswer() {
-            foreach (var ans in _Answers) {
-                if (ans.status == AnwserChooseManager.Status.Choosed) {
-                    if (ans.IsRight) {
-                        _scoreManager.IncreaseScore();
-                        
+        /// <summary>
+        /// Verifica las respuesta, reproduce el sonido de acierto o error y redirige al siguiente elemento
+        /// </summary>
+        public void CheckAnswer() {
+            if (_scored == false) {
+                int rightAnswer = 0;
+                int wrongAnswer = 0;
+                foreach (var ans in _Answers) {
+                    if (ans.status == AnwserChooseManager.Status.Choosed && ans.IsRight) {
+                        ans.AssignSprite(ans.Right);
+                        rightAnswer++;
+                    }
+                    else if (ans.status == AnwserChooseManager.Status.Choosed && ans.IsRight == false) {
+                        ans.AssignSprite(ans.Wrong);
+                        wrongAnswer++;
                     }
                 }
+
+                Debug.Log("Respuestas incorrectas " + wrongAnswer);
+                Debug.Log("Respuestas correctas " + rightAnswer);
+                if (wrongAnswer == 0 && rightAnswer == _numAnswer) {
+                    _scoreManager.IncreaseScore(rightAnswer); //Aumenta el score por el numero de aciertos
+                    //Deshabilita todos los botones
+                    _fxAudio.PlayAudio(2); //Reproduce el audio de acierto
+                    _navegationManager.Forward();
+                }
+                else {
+                    _fxAudio.PlayAudio(1);
+                }
+
+                SetAnswerStatus(false);
+                _navegationManager.Forward(_delay);
+                _scored = true;
             }
         }
 
@@ -59,6 +110,7 @@ namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_V
         public void ResetQuestion() {
             SetAnswerStatus(true);
             RandomizeElements();
+            _scored = false;
         }
 
         /// <summary>

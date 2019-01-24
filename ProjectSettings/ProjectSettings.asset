@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Educar
-  productName: VZ | Expresate Lenguaje 10
+  productName: VZ | Alien
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.007843138, g: 0.43137258, b: 0.6313726, a: 1}
@@ -242,8 +242,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/PROGRAMADOR/Desktop/Certificado_Educar/educar.keystore
-  AndroidKeyaliasName: educar
+  AndroidKeystoreName: 
+  AndroidKeyaliasName: 
   AndroidTVCompatibility: 0
   AndroidIsGame: 0
   AndroidEnableTango: 0
@@ -259,7 +259,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 7d5e885eed3b421488cae5b0a7853800, type: 3}
+      m_Icon: {fileID: 2800000, guid: 4aea1165346893a41971ee3aff0f9711, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

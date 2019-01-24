@@ -59,6 +59,17 @@ namespace Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1
             }
         }
 
+        /// <summary>
+        /// Aumenta el numero de respuestas correctas
+        /// </summary>
+        /// <param name="score">Numero a aumentar</param>
+        public void IncreaseScore(int score) {
+            _rightAnswer += score;
+            if (_rightText != null && AssignResultText) {
+                _rightText.text = _rightAnswer + "";
+            }
+        }
+
         public void ReduceScore() {
             _failedAnswers += 1;
             if (_wrongText != null && AssignResultText) {
