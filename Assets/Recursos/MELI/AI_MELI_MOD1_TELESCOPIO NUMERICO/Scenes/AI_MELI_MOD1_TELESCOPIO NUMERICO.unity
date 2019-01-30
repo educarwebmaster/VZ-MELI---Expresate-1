@@ -159,7 +159,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1984739551569624, guid: 415731d8cb1159d43a51598bde62c9fe, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1017429932521026, guid: 415731d8cb1159d43a51598bde62c9fe, type: 2}
       propertyPath: m_IsActive
@@ -204,6 +204,30 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016481086854438, guid: 415731d8cb1159d43a51598bde62c9fe, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066164345868120, guid: 415731d8cb1159d43a51598bde62c9fe,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.158901
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066164345868120, guid: 415731d8cb1159d43a51598bde62c9fe,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066164345868120, guid: 415731d8cb1159d43a51598bde62c9fe,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.098122105
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066164345868120, guid: 415731d8cb1159d43a51598bde62c9fe,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 415731d8cb1159d43a51598bde62c9fe, type: 2}

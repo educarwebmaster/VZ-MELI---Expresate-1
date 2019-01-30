@@ -3,39 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Planet
-  - Enemy
-  - Bonus
-  - Projectile
-  - Score
-  - Health
-  - CoinsText
-  - Coin
-  - PlayerRay
-  - Rocket
-  - inicio
-  - actividad
-  - salir
-  - informacion
-  - LeftCollector
-  - Asteroide
-  - Alien
-  - Bound
-  - AudioSystem
-  - Correcta
-  - Incorrecta
-  - Techo
-  - Piso
-<<<<<<< HEAD
-  - CoinRight
-  - CoinWrong
-  - Estrella
-=======
-  - NavegationManager
-  - ScoreManager
-  - FxAudio
->>>>>>> db3dbc09ef7e032e80a44a889e2559c96ec1cfc1
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -45,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Telescope
-  - estrella
+  - 
+  - 
   - 
   - 
   - 
@@ -72,25 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 1947543829
-    locked: 0
-  - name: Planets
-    uniqueID: 4094135763
-    locked: 0
-  - name: Projectile
-    uniqueID: 1111697911
-    locked: 0
-  - name: Enemy
-    uniqueID: 1152134415
-    locked: 0
-  - name: Bonus
-    uniqueID: 689362467
-    locked: 0
-  - name: Player
-    uniqueID: 2402381985
-    locked: 0
-  - name: VFX
-    uniqueID: 738997965
     locked: 0

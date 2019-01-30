@@ -18,8 +18,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_ALIMENTAR_EL_OJO.Scripts
         //Mueve al personaje de acuerdo a la coordenada establecida 1: derecha, -1: izquierda
         public void Mover(int horizontalInput)
         {
-            characterBody.AddForce(new Vector2(horizontalInput * VelocidadMovimiento * Time.deltaTime,
-                0)); // Para mover el personaje en el eje X
+            characterBody.AddForce(new Vector2(horizontalInput * VelocidadMovimiento * Time.deltaTime,0)); // Para mover el personaje en el eje X
         }
 
         //Detiene la velocidad del personjae
