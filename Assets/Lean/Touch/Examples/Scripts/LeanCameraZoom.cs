@@ -1,3 +1,4 @@
+using Recursos.MELI.TORRE_DE_PALABRAS.scripts;
 using UnityEngine;
 
 namespace Lean.Touch
@@ -8,6 +9,10 @@ namespace Lean.Touch
 	[HelpURL(LeanTouch.HelpUrlPrefix + "LeanCameraZoom")]
 	public class LeanCameraZoom : MonoBehaviour
 	{
+		private Tower _tower;
+		private bool op = false;	
+		
+		
 		[Tooltip("The camera that will be zoomed (None = MainCamera)")]
 		public Camera Camera;
 
@@ -42,8 +47,6 @@ namespace Lean.Touch
 		[Tooltip("The maximum FOV/Size we want to zoom to")]
 		public float ZoomMax = 60.0f;
 
-		Pieces _objPieces = new Pieces();
-
 		public void ContinuouslyZoom(float direction)
 		{
 			var factor = LeanTouch.GetDampenFactor(Mathf.Abs(direction), Time.deltaTime);
@@ -51,14 +54,12 @@ namespace Lean.Touch
 			if (direction > 0.0f)
 			{
 				Zoom = Mathf.Lerp(Zoom, ZoomMax, factor);
-				
 			}
 			else if (direction <= 0.0f)
 			{
 				Zoom = Mathf.Lerp(Zoom, ZoomMin, factor);
 			}
-
-			_objPieces.GetComponent<Collider>().enabled = false;
+			
 		}
 
 #if UNITY_EDITOR
@@ -73,15 +74,16 @@ namespace Lean.Touch
 			if (RequiredSelectable == null)
 			{
 				RequiredSelectable = GetComponent<LeanSelectable>();
+				_tower =gameObject.AddComponent<Tower>(); 
+					
 			}
 		}
 
 		protected virtual void LateUpdate()
 		{
-			
 			// Get the fingers we want to use
 			var fingers = LeanSelectable.GetFingers(IgnoreStartedOverGui, IgnoreIsOverGui, RequiredFingerCount, RequiredSelectable);
-
+			
 			// Get the pinch ratio of these fingers
 			var pinchRatio = LeanGesture.GetPinchRatio(fingers, WheelSensitivity);
 
@@ -89,9 +91,9 @@ namespace Lean.Touch
 			if (Relative == true)
 			{
 				var pinchScreenCenter = LeanGesture.GetScreenCenter(fingers);
-				
 
 				Translate(pinchRatio, pinchScreenCenter);
+				
 			}
 
 			// Modify the zoom value
@@ -99,13 +101,30 @@ namespace Lean.Touch
 
 			if (ZoomClamp == true)
 			{
-				
 				Zoom = Mathf.Clamp(Zoom, ZoomMin, ZoomMax);
 				
 			}
-		
+
+			
+			if (fingers.Count > 1)
+			{
+				op = true;
+				Debug.Log("cambio");
+				_tower.DisableColliderChildrens(op);
+			}
+			else
+			{
+				op = false;
+				Debug.Log("No cambio");
+				_tower.DisableColliderChildrens(op);
+			}
+			
 			// Set the new zoom
 			SetZoom(Zoom);
+			
+			//Debug.Log(fingers.Count);
+			//DisableCollider(fingerTemp);
+			
 			
 			
 		}
@@ -117,7 +136,6 @@ namespace Lean.Touch
 
 			if (camera != null)
 			{
-				
 				// Screen position of the transform
 				var screenPosition = camera.WorldToScreenPoint(transform.position);
 
@@ -127,7 +145,6 @@ namespace Lean.Touch
 
 				// Convert back to world space
 				transform.position = camera.ScreenToWorldPoint(screenPosition);
-				Debug.Log(screenPosition);
 				
 			}
 			else
@@ -152,12 +169,16 @@ namespace Lean.Touch
 				else
 				{
 					camera.fieldOfView = current;
+					
 				}
+				
 			}
 			else
 			{
 				Debug.LogError("Failed to find camera. Either tag your cameras MainCamera, or set one in this component.", this);
 			}
 		}
+
+		
 	}
 }

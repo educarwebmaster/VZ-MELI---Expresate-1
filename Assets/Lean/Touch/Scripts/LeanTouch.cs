@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-
+using Recursos.MELI.TORRE_DE_PALABRAS.scripts;
 #if UNITY_EDITOR
 using UnityEditor;
 
@@ -13,6 +13,9 @@ namespace Lean.Touch
 		private static List<LeanFinger> allFingers = new List<LeanFinger>();
 
 		private static GUIStyle fadingLabel;
+		
+		[SerializeField] private Tower _tower;
+		private Collider[] _collider;
 
 		[MenuItem("GameObject/Lean/Touch", false, 1)]
 		public static void CreateTouch()
@@ -24,6 +27,7 @@ namespace Lean.Touch
 			gameObject.AddComponent<LeanTouch>();
 
 			Selection.activeGameObject = gameObject;
+			
 		}
 
 		// Draw the whole inspector
@@ -57,7 +61,7 @@ namespace Lean.Touch
 			DrawDefault("SwipeThreshold");
 			DrawDefault("ReferenceDpi");
 			DrawDefault("GuiLayers");
-
+			
 			EditorGUILayout.Separator();
 
 			DrawDefault("RecordFingers");
@@ -105,6 +109,14 @@ namespace Lean.Touch
 					var screenPosition = finger.ScreenPosition;
 
 					EditorGUILayout.LabelField("#" + finger.Index + " x " + finger.TapCount + " (" + Mathf.FloorToInt(screenPosition.x) + ", " + Mathf.FloorToInt(screenPosition.y) + ") - " + finger.Age.ToString("0.0"), style);
+					if (finger.Index >-1)
+					{
+						_collider = _tower.gameObject.GetComponentsInChildren<Collider>();
+						foreach (var elem in _collider)
+						{
+							elem.enabled = false;
+						}
+					}
 				}
 			}
 		}

@@ -3,6 +3,7 @@ using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMAL
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using UnityEngine;
 
+
 namespace Navegation {
     public class NavBar : MonoBehaviour {
         [Header("Navegacion")] [SerializeField]
@@ -48,7 +49,7 @@ namespace Navegation {
 
         public void HabilitarBotones() {
             foreach (var elem in _navbarElements) {
-                elem.SetActive(true);
+                    elem.SetActive(true);
             }
         }
     }

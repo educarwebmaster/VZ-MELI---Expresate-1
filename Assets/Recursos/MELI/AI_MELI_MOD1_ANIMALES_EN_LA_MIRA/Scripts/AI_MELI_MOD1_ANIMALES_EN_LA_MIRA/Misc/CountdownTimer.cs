@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Misc {
     public class CountdownTimer : MonoBehaviour {
         [Header("Tiempo en segundos a asignar")] [SerializeField]
@@ -44,6 +45,7 @@ namespace Misc {
         private void OnEnable() {
             _currentTime = _timeValue;
             StartCoroutine(CountDown());
+            Debug.Log("hola");
         }
 
 

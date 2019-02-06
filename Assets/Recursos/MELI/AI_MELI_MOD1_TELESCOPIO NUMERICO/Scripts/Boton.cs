@@ -23,7 +23,7 @@ namespace Recursos.MELI.AI_MELI_MOD1_TELESCOPIO_NUMERICO.Scripts {
       public void OnPointerUp(PointerEventData eventData)
       {
          op = false;
-         //Debug.Log(op);
+         Debug.Log(op);
       
       }
    }

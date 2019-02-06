@@ -9,6 +9,7 @@ using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANI
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Recursos.EXPRESATE.PLANTILLAS.Scripts.Seleccion_Multiple
 {
     public class MultipleChooseManager : MonoBehaviour

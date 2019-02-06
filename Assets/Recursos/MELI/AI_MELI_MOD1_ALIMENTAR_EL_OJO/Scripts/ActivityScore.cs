@@ -5,6 +5,7 @@ using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANI
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Recursos.MELI.AI_MELI_MOD1_ALIMENTAR_EL_OJO.Scripts {
     public class ActivityScore : MonoBehaviour {
         //Array para guardar los objetos

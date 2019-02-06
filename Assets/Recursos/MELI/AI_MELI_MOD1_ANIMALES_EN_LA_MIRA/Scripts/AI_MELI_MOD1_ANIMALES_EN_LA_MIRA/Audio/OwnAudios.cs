@@ -3,6 +3,7 @@ using Navegation;
 using Recursos.MELI.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Navegation;
 using UnityEngine;
 
+
 namespace Audio {
     public class OwnAudios : MonoBehaviour {
         [Header("Audios del recurso")] public AudioClip[] Audios;

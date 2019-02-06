@@ -7,6 +7,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Recursos.EXPRESATE.Lenguaje.PLANTILLAS.Prefabs.Seleccion_Objecto_con_Validar.Scripts
 {
     public class QuestionChooseManager : MonoBehaviour

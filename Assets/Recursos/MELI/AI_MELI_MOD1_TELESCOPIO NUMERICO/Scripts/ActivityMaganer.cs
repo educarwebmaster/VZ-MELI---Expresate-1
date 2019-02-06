@@ -5,6 +5,7 @@ using Resource.LIBRO_C.AI_MELI_MOD1_ANIMALES_EN_LA_MIRA.Scripts.AI_MELI_MOD1_ANI
 using UnityEngine;
 using UnityEngine.UI;
 
+
 namespace Recursos.MELI.AI_MELI_MOD1_TELESCOPIO_NUMERICO.Scripts {
 	public class ActivityMaganer : MonoBehaviour {
 
@@ -43,11 +44,13 @@ namespace Recursos.MELI.AI_MELI_MOD1_TELESCOPIO_NUMERICO.Scripts {
         }
 
         public void Pause() {
+            Debug.Log("pause");
             Time.timeScale = 0;
             _personaje.SetActive(false);
         }
 
         public void Resume() {
+            Debug.Log("resume");
             Time.timeScale = 1;
             _personaje.SetActive(true);
         }

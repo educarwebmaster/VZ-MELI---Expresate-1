@@ -7,7 +7,7 @@ namespace Resource.LIBRO_F.AI_MELI_MOD1_LABERINTO_OCULAR.Scripts
     {
         public int QualityLevel, SceneLevel;
         public bool AR;
-
+        public bool op;
         private void Start() {
             //Asigna el limite max de FPS
             Application.targetFrameRate = 300;
@@ -33,6 +33,8 @@ namespace Resource.LIBRO_F.AI_MELI_MOD1_LABERINTO_OCULAR.Scripts
         public void RestartLevel(int index) {
             SceneManager.LoadScene(index);
         }
+
+  
 
         public void Resume() {
             if (Time.timeScale == 1f)
