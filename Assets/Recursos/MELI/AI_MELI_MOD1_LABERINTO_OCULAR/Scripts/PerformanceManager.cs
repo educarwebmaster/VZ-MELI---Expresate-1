@@ -34,7 +34,8 @@ namespace Resource.LIBRO_F.AI_MELI_MOD1_LABERINTO_OCULAR.Scripts
             SceneManager.LoadScene(index);
         }
 
-  
+     
+
 
         public void Resume() {
             if (Time.timeScale == 1f)

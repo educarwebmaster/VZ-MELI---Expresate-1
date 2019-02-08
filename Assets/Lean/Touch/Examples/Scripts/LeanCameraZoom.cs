@@ -110,13 +110,13 @@ namespace Lean.Touch
 			{
 				op = true;
 				Debug.Log("cambio");
-				_tower.DisableColliderChildrens(op);
+				
 			}
 			else
 			{
 				op = false;
 				Debug.Log("No cambio");
-				_tower.DisableColliderChildrens(op);
+				
 			}
 			
 			// Set the new zoom
