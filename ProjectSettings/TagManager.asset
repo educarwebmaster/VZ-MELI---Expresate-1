@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - inicio
+  - informacion
+  - actividad
+  - salir
+  - Estrella
   layers:
   - Default
   - TransparentFX
@@ -13,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - OjosSaludables
+  - Ejercicio
   - 
   - 
   - 
@@ -38,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Texto
+    uniqueID: 2020466683
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
