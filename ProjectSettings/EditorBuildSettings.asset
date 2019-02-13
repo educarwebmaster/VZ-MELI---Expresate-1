@@ -6,7 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Recursos/MELI/AI_MELI_MOD1_TELESCOPIO NUMERICO/Scenes/VZ_MELI_MOD1_TELESCOPIO
-      NUMERICO.unity
-    guid: aa44e8b6712db714ba317c6c9e8e9a26
+    path: Assets/Recursos/MELI/AI_MELI_MOD1_TORRE_DE_PALABRAS/scenes/VZ_MELI_MOD1_TORRE_DE_PALABRAS.unity
+    guid: 201e99ef719a27344ac7b9987c45b901
+  - enabled: 1
+    path: Assets/Recursos/MELI/AI_MELI_MOD1_TORRE_DE_PALABRAS/scenes/Jenga.unity
+    guid: 8d749b1acc0a43c41b8db934789a9a9f
   m_configObjects: {}
