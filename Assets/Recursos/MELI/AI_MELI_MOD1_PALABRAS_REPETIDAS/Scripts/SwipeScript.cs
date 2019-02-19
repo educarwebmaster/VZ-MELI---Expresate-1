@@ -15,6 +15,8 @@ public class SwipeScript : MonoBehaviour {
 
     Rigidbody rb;
 
+    public int speed;
+
     void Start() {
         rb = GetComponent<Rigidbody>();
     }
@@ -53,6 +55,20 @@ public class SwipeScript : MonoBehaviour {
             if (DestroyElement) {
                 Destroy(gameObject, 3f);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Vector3 tempPos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+            tempPos.y += speed * Time.deltaTime;
+            transform.position = tempPos;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Vector3 tempPos = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+            tempPos.y -= speed * Time.deltaTime;
+            transform.position = tempPos;
         }
     }
 }

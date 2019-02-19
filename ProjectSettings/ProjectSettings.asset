@@ -242,7 +242,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 1
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/COORDINADOR-PC/Desktop/Navidad/Certificado_Educar/Certificado_Educar/educar.keystore
+  AndroidKeystoreName: C:/Users/Admin/Desktop/Navidad/Certificado_Educar/Certificado_Educar/educar.keystore
   AndroidKeyaliasName: educar
   AndroidTVCompatibility: 0
   AndroidIsGame: 0
