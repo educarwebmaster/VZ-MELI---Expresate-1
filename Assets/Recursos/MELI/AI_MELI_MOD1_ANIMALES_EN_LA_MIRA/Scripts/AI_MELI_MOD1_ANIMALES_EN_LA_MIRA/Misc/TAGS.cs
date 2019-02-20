@@ -20,5 +20,7 @@
         public static string NAVEGATION_MANAGER = "NavegationManager";
         public static string SCORE_MANAGER = "ScoreManager";
         public static string FXAUDIO = "FxAudio";
+        public static string NUMERO = "Numero";
+        public static string REGLETA = "Regleta";
     }
 }

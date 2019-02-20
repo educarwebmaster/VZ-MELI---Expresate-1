@@ -9,6 +9,11 @@ TagManager:
   - actividad
   - salir
   - Estrella
+  - Asteroide
+  - Alien
+  - Bound
+  - Numero
+  - Regleta
   layers:
   - Default
   - TransparentFX

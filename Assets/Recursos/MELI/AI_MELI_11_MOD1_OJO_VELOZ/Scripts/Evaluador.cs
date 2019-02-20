@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class Evaluador : MonoBehaviour, IPointerDownHandler
 {
     public int Id;
