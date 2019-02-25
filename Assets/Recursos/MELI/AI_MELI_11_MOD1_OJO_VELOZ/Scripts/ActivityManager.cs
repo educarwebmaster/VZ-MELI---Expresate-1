@@ -43,6 +43,7 @@ namespace Recursos.MELI.AI_MELI_11_MOD1_OJO_VELOZ.Scripts
                     for (int k = 0; k < listaFichas.Count; k++)
                     {
                         listaFichas[k].gameObject.GetComponent<Evaluador>().verificado = true;
+                        
                         //listaFichas[k].gameObject.GetComponent<Evaluador>().enabled = false;
                     }
 
@@ -60,12 +61,13 @@ namespace Recursos.MELI.AI_MELI_11_MOD1_OJO_VELOZ.Scripts
                     {
                         if (i < listaFichas.Count - 1)
                         {
-                            if (listaFichas[i].gameObject.GetComponent<Evaluador>().Grupo ==
-                                listaFichas[i + 1].gameObject.GetComponent<Evaluador>().Grupo)
+                            if (listaFichas[i].gameObject.GetComponent<Evaluador>().Grupo ==listaFichas[i + 1].gameObject.GetComponent<Evaluador>().Grupo)
                             {
                             }
                             else
                             {
+                                
+
                                 EliminarElementos();
                                 break;
                             }
@@ -80,6 +82,8 @@ namespace Recursos.MELI.AI_MELI_11_MOD1_OJO_VELOZ.Scripts
             for (int k = 0; k < listaFichas.Count; k++)
             {
                 listaFichas[k].gameObject.GetComponent<Evaluador>().seleccionado = false;
+                
+                
             }
 
             listaFichas.Clear();
@@ -112,6 +116,18 @@ namespace Recursos.MELI.AI_MELI_11_MOD1_OJO_VELOZ.Scripts
                 }
                 _navegationManager.Forward(2);
             }
+        }
+        
+        public void Pause() {
+            Debug.Log("pause");
+            Time.timeScale = 0;
+            
+        }
+
+        public void Resume() {
+            Debug.Log("resume");
+            Time.timeScale = 1;
+            
         }
     }
 }

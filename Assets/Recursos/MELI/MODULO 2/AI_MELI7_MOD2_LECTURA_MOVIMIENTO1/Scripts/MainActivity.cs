@@ -33,7 +33,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
         [SerializeField] private Text _textoCorrecto, _textoIncorrecto;
         public int apuntador,next=0;
 
-        public Text nombreColumna;
+        
 
         
 
@@ -43,12 +43,13 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
             IntentosColumna = Columnas[0].transform.GetComponent<Columna>().intentos;
             AciertosColumna = Columnas[0].transform.GetComponent<Columna>().correctas;
             
-            Debug.Log(transform.parent.GetChild(10).name);
+            Debug.Log(transform.parent.GetChild(11).name);
+            
         }
 
         private void Update()
         {
-            nombreColumna.text = "Columna " + apuntador;
+            
             if (apuntador == 3)
             {
                
@@ -70,7 +71,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                 
                 correctasColumna++;
                 correctasTotal++;
-                _textoCorrecto.text = "Correctas: "+correctasColumna.ToString();
+                _textoCorrecto.text = correctasColumna.ToString();
                 ScoreManager.IncreaseScore();
                 
             }
@@ -78,7 +79,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                 _FxAudio.PlayAudio(1);
                 incorrectasTotal++;
                 incorrectasColumna++;
-                _textoIncorrecto.text = "Intentos: "+incorrectasColumna.ToString();
+                _textoIncorrecto.text = incorrectasColumna.ToString();
                 
             }
             NextPage(correctasTotal,incorrectasTotal);
@@ -118,28 +119,28 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                 apuntador++;
                 Columnas[apuntador].active = true;
                 Regletas[apuntador].active = true;
-                _textoCorrecto.text = "Correctas: 0";
-                _textoIncorrecto.text = "Intentos: 0";
+                _textoCorrecto.text = "0";
+                _textoIncorrecto.text = "0";
                 Columnas[apuntador].transform.parent.parent.GetComponentInParent<ScrollRect>().content = Columnas[apuntador].transform.GetComponent<RectTransform>();
                 IntentosColumna = Columnas[apuntador].transform.GetComponent<Columna>().intentos;
                 AciertosColumna = Columnas[apuntador].transform.GetComponent<Columna>().correctas;
-                Debug.Log("apuntador despues "+apuntador);
+               // Debug.Log("apuntador despues "+apuntador);
             }
             if (apuntador == 1)
             {
-                Vector3 temp = new Vector3(-97f,180.7f,0);
-                transform.parent.GetChild(10).transform.localPosition = temp;
+                Vector3 temp = new Vector3(-234f,97f,0);
+                transform.parent.GetChild(11).transform.localPosition = temp;
             }
             if (apuntador == 2)
             {
-                Vector3 temp = new Vector3(196f,180.7f,0);
-                transform.parent.GetChild(10).transform.localPosition = temp;
+                Vector3 temp = new Vector3(54,97f,0);
+                transform.parent.GetChild(11).transform.localPosition = temp;
             }
             if (apuntador == 3)
             {
-                Vector3 temp = new Vector3(486f,180.7f,0);
-                transform.parent.GetChild(10).transform.localPosition= temp;
-                
+                Vector3 temp = new Vector3(345f,96.1f,0);
+                transform.parent.GetChild(11).transform.localPosition= temp;
+                NextPage1(AciertosColumna,IntentosColumna);
             }
             
 
@@ -151,21 +152,31 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
             //Debug.Log("Total C: "+correctasTotal+" Total I: "+incorrectasTotal);
             if (correctasTotal == AciertosTotal)
             {
-                _navegationManager.Forward();
+                _navegationManager.GoToElement(11);
             }
             if (incorrectasTotal == IntentosTotal)
             {
-                _navegationManager.Forward();
+                //_navegationManager.Forward(2);
+                _navegationManager.GoToElement(11);
             }
 
         }
 
         IEnumerator NextPage1(int correctasColumna, int incorrectasColumna)
         {
-            Debug.Log("Entre next1");
+            //Debug.Log("Entre next1");
             yield return new WaitForSeconds(1);
-            if(incorrectasColumna ==3)  _navegationManager.Forward();
-            if(correctasColumna ==1)  _navegationManager.Forward();
+            if (incorrectasColumna == 3)
+            {
+                //_navegationManager.Forward(2);
+                _navegationManager.GoToElement(11);
+            }
+
+            if (correctasColumna == 1)
+            {
+                //_navegationManager.Forward(2);
+                _navegationManager.GoToElement(11);
+            }
         }
     }
 }

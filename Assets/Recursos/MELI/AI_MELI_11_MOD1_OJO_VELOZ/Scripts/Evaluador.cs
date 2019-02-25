@@ -30,6 +30,7 @@ public class Evaluador : MonoBehaviour, IPointerDownHandler
         if (seleccionado == false)
         {
             imagenActual.sprite = imagenInicial;
+            habilitado = true;
         }
 
         if (verificado)
@@ -54,7 +55,9 @@ public class Evaluador : MonoBehaviour, IPointerDownHandler
             {
                 _FxAudio.PlayAudio(0);
                 imagenActual.sprite = imagenSeleccion;
+                habilitado = false;
                 activityManager.AdicionarElementos(gameObject);
+                
             }
         }
     }

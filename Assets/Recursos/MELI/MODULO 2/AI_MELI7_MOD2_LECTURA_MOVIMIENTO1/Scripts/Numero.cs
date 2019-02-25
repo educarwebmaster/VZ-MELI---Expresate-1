@@ -40,7 +40,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                         _mainActivity.Calificar(isTrue);
                         active = false;
                         seleccionado = true;
-                        Debug.Log(child.name);
+                       // Debug.Log(child.name);
                         ChangeColor(child,2);
 
                     }
@@ -49,7 +49,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                         _mainActivity.Calificar(isTrue);
                         active = false;
                         seleccionado = true;
-                        Debug.Log(child.name);
+                       // Debug.Log(child.name);
                         ChangeColor(child,3);
                     }
                 }	
@@ -111,7 +111,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
             if (id == 2)
             {
                 // Correcto
-                child.GetComponent<Text>().color = new Color(0, 255, 0, 255);
+                child.GetComponent<Text>().color = new Color32(114,187,0,255);
             }
             if (id == 3)
             {

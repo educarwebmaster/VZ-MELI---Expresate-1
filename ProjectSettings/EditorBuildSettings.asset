@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Recursos/MELI/MODULO 2/AI_MELI7_MOD2_LECTURA_MOVIMIENTO1/AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.unity
+    path: Assets/Recursos/MELI/MODULO 2/AI_MELI7_MOD2_LECTURA_MOVIMIENTO1/Scenes/AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.unity
     guid: 08426fc5672afbc4bad44d3ccc795ab1
   m_configObjects: {}
