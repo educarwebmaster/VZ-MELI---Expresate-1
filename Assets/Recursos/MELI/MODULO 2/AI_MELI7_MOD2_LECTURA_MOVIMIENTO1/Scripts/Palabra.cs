@@ -57,7 +57,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
                 texto.color = new Color32(114,187,0,255);
                 ScoreManager.IncreaseScore();
                 _FxAudio.PlayAudio(2);
-                //_navegationManager.Forward();
+               _navegationManager.Forward();
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
 
                 if (intentos == 3)
                 {
-                    //_navegationManager.Forward();
+                   _navegationManager.Forward();
                 }
             }
         }
@@ -83,7 +83,16 @@ namespace Recursos.MELI.MODULO_2.AI_MELI7_MOD2_LECTURA_MOVIMIENTO1.Scripts
             texto.color = Color.black;
         }
 
-		
+        public void CleaActivity()
+        {
+            /*gameObject.transform.GetComponent<InputField>().text = "";
+            texto.color = Color.black;
+            aciertos = 0;
+            intentos = 0;
+            textoAcierto.text = "0";
+            textoIntentos.text = "0";*/
+        }
+        
 
 
     }
